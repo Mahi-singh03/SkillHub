@@ -50,7 +50,7 @@ const validations = [
     .notEmpty()
     .withMessage('Qualification is required'),
 
-  // Optional: Validate selected course (if needed)
+  // Optional: Validate selected cours (if needed)
   body('selectedCourse')
     .notEmpty()
     .withMessage('Course selection is required')
