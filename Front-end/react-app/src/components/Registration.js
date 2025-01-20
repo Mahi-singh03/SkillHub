@@ -5,6 +5,7 @@ import '../css/Registration.css';
 const Registration = () => {
   const [formData, setFormData] = useState({
     fullName: '',
+    fatherName: '',  // Add the father's name field here
     emailAddress: '',
     phoneNumber: '',
     selectedCourse: '',
@@ -29,8 +30,9 @@ const Registration = () => {
   };
 
   const validateForm = () => {
-    const { fullName, emailAddress, phoneNumber, selectedCourse, address, qualification, password } = formData;
+    const { fullName, fatherName, emailAddress, phoneNumber, selectedCourse, address, qualification, password } = formData;
     if (!fullName.trim()) return 'Full name is required.';
+    if (!fatherName.trim()) return 'Father\'s name is required.';  // Validate father's name
     if (!/\S+@\S+\.\S+/.test(emailAddress)) return 'Please enter a valid email address.';
     if (!phoneNumber.trim()) return 'Phone number is required.';
     if (!selectedCourse.trim()) return 'Please select a course.';
@@ -94,6 +96,10 @@ const Registration = () => {
       <div className="form-group">
         <label htmlFor="fullName">Full Name</label>
         <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} id="fullName" required />
+      </div>
+      <div className="form-group">
+        <label htmlFor="fatherName">Father's Name</label> {/* Add field for father's name */}
+        <input type="text" name="fatherName" value={formData.fatherName} onChange={handleInputChange} id="fatherName" required />
       </div>
       <div className="form-group">
         <label htmlFor="emailAddress">Email Address</label>

@@ -11,6 +11,8 @@ import Contact from './components/contact';
 import Home from './components/Home';
 import Courses from './components/Courses';
 import Registration from './components/Registration';
+import ScrollToTop from './components/ScrollToTop'; // Import the ScrollToTop component
+import CourseCard from './components/CoursesDetails'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,10 +34,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop /> {/* Add ScrollToTop component */}
         <NavBar />
-        {isLoggedIn && <DetailBar />}
+        {isLoggedIn && <DetailBar />}   
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path='/CourseCard' element ={ < CourseCard />} />
           <Route path="/Courses" element={<Courses />} />
           <Route path="/Registration" element={<Registration />} />
           <Route path="/Gallery" element={<h1>Gallery</h1>} />
