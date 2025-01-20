@@ -5,10 +5,14 @@ body, h1, input, select, button {
   box-sizing: border-box;
 }
 
+.main_heading{
+  text-align: center;
+  padding-top: 20px;
+}
 
 .registration-form {
   width: 90%;
-  max-width: 500px;
+  max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
   background: #d6d3d3;
