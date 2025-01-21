@@ -40,20 +40,20 @@ const validations = [
     .matches(/[@$!%*?&#]/)
     .withMessage('Password must contain at least one special character (@, $, !, %, *, ?, &, or #)'),
 
-  // Optional: Validate address (if needed)
+  // Validate Address
   body('address')
     .notEmpty()
     .withMessage('Address is required'),
 
-  // Optional: Validate qualification (if needed)
-  body(' qualification')
+  // Validate Qualification
+  body('qualification')
     .notEmpty()
     .withMessage('Qualification is required'),
 
-  // Optional: Validate selected cours (if needed)
+  // Validate Selected Course
   body('selectedCourse')
     .notEmpty()
-    .withMessage('Course selection is required')
+    .withMessage('Course selection is required'),
 ];
 
 const validate = (req, res, next) => {
@@ -66,22 +66,3 @@ const validate = (req, res, next) => {
 };
 
 module.exports = { validations, validate };
-
-// const validations_2 = [
-//   body('password')
-//     .isLength({ min: 8 })
-//     .withMessage('Password must be at least 8 characters long')
-//     .matches(/[A-Z]/)
-//     .withMessage('Password must contain at least one uppercase letter')
-//     .matches(/[a-z]/)
-//     .withMessage('Password must contain at least one lowercase letter')
-//     .matches(/[0-9]/)
-//     .withMessage('Password must contain at least one number')
-//     .matches(/[@$!%*?&#]/)
-//     .withMessage('Password must contain at least one special character (@, $, !, %, *, ?, &, or #)'),
-//   body('email')
-//     .isEmail()
-//     .withMessage('Invalid email address')
-// ];
-
-// module.exports = { validations_1,validations_2, validationResult };
