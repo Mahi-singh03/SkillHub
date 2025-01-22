@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../css/NavBar.css';
 import logo from '../Images/logo.png';
+import logo2 from '../Images/logo2.png';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +55,7 @@ const NavBar = () => {
     <nav className="nav-bar">
       <div className="nav-container">
         <Link className="nav-brand" to="/">
-          <img src={logo} alt="Restaurant Logo" className="nav-logo" /> Skillup Institute of Learning
+          <img src={logo} alt="Restaurant Logo" className="nav-logo" /> <img src={logo2}  alt="Restaurant Logo" className="nav-logo2" />
         </Link>
         <div className="hamburger-menu" onClick={toggleMenu}>
           ☰
