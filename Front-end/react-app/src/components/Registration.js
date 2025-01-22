@@ -66,12 +66,12 @@ const Registration = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // If registration is successful, store user data in localStorage
+        // If registration is successful, store user data and registration status in localStorage
         localStorage.setItem('user', JSON.stringify(data));
+        localStorage.setItem('isRegistered', 'true'); // Store registration status
         window.dispatchEvent(new Event('storage'));
         navigate('/', { replace: true });  // Redirect to home page after successful registration
       } else {
-        // Show any errors from the backend
         setError(data.message || 'Failed to register. Please try again.');
       }
     } catch (error) {

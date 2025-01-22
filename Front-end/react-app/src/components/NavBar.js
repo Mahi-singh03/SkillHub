@@ -25,26 +25,27 @@ const NavBar = () => {
     updateLoginStatus();
     updateRegistrationStatus();
 
-    // Listen for changes in localStorage
-    window.addEventListener('storage', () => {
+    // Listener for changes in localStorage
+    const handleStorageChange = () => {
       updateLoginStatus();
       updateRegistrationStatus();
-    });
+    };
+
+    window.addEventListener('storage', handleStorageChange);
 
     // Cleanup listener on component unmount
     return () => {
-      window.removeEventListener('storage', () => {
-        updateLoginStatus();
-        updateRegistrationStatus();
-      });
+      window.removeEventListener('storage', handleStorageChange);
     };
-  }, [location.pathname]);
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
+    localStorage.removeItem('isRegistered'); // Optionally clear registration status
     setIsLoggedIn(false);
+    setIsRegistered(false);
     navigate('/');
     window.dispatchEvent(new Event('storage')); // Notify other components
   };
@@ -71,6 +72,7 @@ const NavBar = () => {
           >
             Courses
           </Link>
+          {/* Only show Register link if the user has not registered yet */}
           {!isRegistered && (
             <Link
               className={`nav-link ${location.pathname === '/Registration' ? 'active' : ''}`}
