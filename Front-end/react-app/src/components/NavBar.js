@@ -40,7 +40,7 @@ const NavBar = () => {
     <nav className="nav-bar">
       <div className="nav-container">
         <Link className="nav-brand" to="/">
-          <img src={logo} alt="Restaurant Logo" className="nav-logo" />
+          <img src={logo} alt="Restaurant Logo" className="nav-logo" /> Skillup Institute of Learning
         </Link>
         <div className="hamburger-menu" onClick={toggleMenu}>
           ☰

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import image from "../Images/b3.jpg";
 import image_2 from "../Images/React.jpg";
 import "../css/Home.css";
+import im1  from '../Images/IMG_9070.JPG'
+import im2  from '../Images/IMG_9071.JPG'
 
 const App = () => {
   const scrollLeft = () => {
@@ -23,21 +25,21 @@ const App = () => {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={image} className="d-block w-100 cropped-img" alt="First slide" />
+            <img src={im1} className="d-block w-100 cropped-img" alt="First slide" />
             <div className="carousel-caption d-none d-md-block">
               <h5>First slide label</h5>
               <p>Some representative placeholder content for the first slide.</p>
             </div>
           </div>
           <div className="carousel-item">
-            <img src={image} className="d-block w-100 cropped-img" alt="Second slide" />
+            <img src={im2} className="d-block w-100 cropped-img" alt="Second slide" />
             <div className="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
               <p>Some representative placeholder content for the second slide.</p>
             </div>
           </div>
           <div className="carousel-item">
-            <img src={image} className="d-block w-100 cropped-img" alt="Third slide" />
+            <img src={im1} className="d-block w-100 cropped-img" alt="Third slide" />
             <div className="carousel-caption d-none d-md-block">
               <h5>Third slide label</h5>
               <p>Some representative placeholder content for the third slide.</p>

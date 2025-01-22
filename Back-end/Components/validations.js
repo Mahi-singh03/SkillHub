@@ -1,64 +1,18 @@
-const { body, validationResult } = require('express-validator');
+const { check, validationResult } = require('express-validator');
 
 const validations = [
-  // Validate Full Name
-  body('fullName')
-    .isLength({ min: 3, max: 20 })
-    .withMessage('Name must be between 3 and 20 characters long')
-    .isAlpha('en-US', { ignore: ' ' })
-    .withMessage('Name must only contain alphabetic characters and spaces'),
-
-  // Validate Father's Name
-  body('fatherName')
-    .isLength({ min: 3, max: 20 })
-    .withMessage("Father's Name must be between 3 and 20 characters long")
-    .isAlpha('en-US', { ignore: ' ' })
-    .withMessage("Father's Name must only contain alphabetic characters and spaces"),
-
-  // Validate Email
-  body('emailAddress')
-    .isEmail()
-    .withMessage('Invalid email address'),
-
-  // Validate Phone Number
-  body('phoneNumber')
-    .isLength({ min: 10, max: 10 })
-    .withMessage('Phone number must be 10 digits long')
-    .matches(/^[0-9]+$/)
-    .withMessage('Phone number must contain only digits'),
-
-  // Validate Password
-  body('password')
-    .isLength({ min: 8 })
-    .withMessage('Password must be at least 8 characters long')
-    .matches(/[A-Z]/)
-    .withMessage('Password must contain at least one uppercase letter')
-    .matches(/[a-z]/)
-    .withMessage('Password must contain at least one lowercase letter')
-    .matches(/[0-9]/)
-    .withMessage('Password must contain at least one number')
-    .matches(/[@$!%*?&#]/)
-    .withMessage('Password must contain at least one special character (@, $, !, %, *, ?, &, or #)'),
-
-  // Validate Address
-  body('address')
-    .notEmpty()
-    .withMessage('Address is required'),
-
-  // Validate Qualification
-  body('qualification')
-    .notEmpty()
-    .withMessage('Qualification is required'),
-
-  // Validate Selected Course
-  body('selectedCourse')
-    .notEmpty()
-    .withMessage('Course selection is required'),
+  check('fullName').not().isEmpty().withMessage('Full name is required'),
+  check('fatherName').not().isEmpty().withMessage('Father name is required'),
+  check('emailAddress').isEmail().withMessage('Invalid email address'),
+  check('phoneNumber').matches(/^\d{10}$/).withMessage('Phone number must be 10 digits'),
+  check('selectedCourse').not().isEmpty().withMessage('Selected course is required'),
+  check('address').not().isEmpty().withMessage('Address is required'),
+  check('qualification').not().isEmpty().withMessage('Qualification is required'),
+  check('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters'),
 ];
 
 const validate = (req, res, next) => {
   const errors = validationResult(req);
-
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
