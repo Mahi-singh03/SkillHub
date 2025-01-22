@@ -1,223 +1,280 @@
-/* CourseCard.css */
+/* General Styles */
 .course-card {
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-  }
-  
+  font-family: 'Roboto', sans-serif;
+  max-width: 1200px;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.course-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.course-title {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.course-title h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.course-title p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+.course-video img {
+  max-width: 220px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+/* Course Info Section */
+.course-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  flex-wrap: wrap;
+}
+
+.course-info > div, 
+.course-info > button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  min-height: 150px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.course-price {
+  font-size: 18px;
+  text-align: center;
+}
+
+.price {
+  font-size: 24px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-left: 10px;
+}
+
+.discount {
+  color: #d9534f;
+  margin-left: 10px;
+}
+
+.offer-expiry {
+  font-size: 14px;
+  color: #f39c12;
+  margin-top: 5px;
+}
+
+.course-duration span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+}
+
+.add-to-cart-btn {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Learning Section */
+.course-learn {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.course-learn h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.course-learn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.course-learn ul li {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.course-learn ul li::before {
+  content: '✔';
+  color: #28a745;
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Accordion Section */
+.accordion_div {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.accordion-header {
+  background-color: #f1f1f1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.accordion-button {
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.accordion-body {
+  padding: 12px;
+  font-size: 14px;
+  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: -10px;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
   .course-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .course-title {
-    flex: 1;
-    margin-bottom: 10px;
-  }
-  
-  .course-title h1 {
-    font-size: 1.5rem;
-    margin: 0 0 10px 0;
-  }
-  
-  .course-title p {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .course-video img {
-    
-    max-width: 300px;
-    border-radius: 8px;
-    margin-left: 20px;
-    object-fit: cover;
-  }
-  
-  .course-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    padding: 20px;
-  }
-  
-  .course-rating {
-    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .rating {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #f39c12;
-  }
-  
-  .reviews,
-  .learners {
-    font-size: 0.9rem;
-    color: #555;
-  }
-  
-  .course-price {
-    text-align: right;
-    margin-top: 10px;
-  }
-  
-  .price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #27ae60;
-  }
-  
-  .original-price {
-    text-decoration: line-through;
-    color: #aaa;
-    margin-left: 10px;
-  }
-  
-  .discount {
-    font-size: 1rem;
-    color: #e74c3c;
-    font-weight: bold;
-  }
-  
-  .offer-expiry p {
-    font-size: 0.9rem;
-    color: #e74c3c;
-  }
-  
-  .add-to-cart-btn {
-    width: 130px;
-    padding: 12px;
-    margin-top: 10px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-bottom: 20px;
-  }
-  
-  .add-to-cart-btn:hover {
-    background-color: #2980b9;
-  }
-  
-  .course-guarantee {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 20px;
-  }
-  
-  .course-learn {
-    margin-top: 30px;
-  }
-  
-  .course-learn h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-  }
-  
-  .course-learn ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  .course-learn ul li {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 8px;
-  }
-  
-  /* Mobile responsiveness */
-  @media (max-width: 767px) {
-    .course-header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .course-title h1 {
-      font-size: 1.3rem;
-    }
-  
-    .course-title p {
-      font-size: 0.9rem;
-    }
-  
-    .course-video img {
-      max-width: 100%;
-      margin-left: 0;
-      margin-top: 10px;
-    }
-  
-    .course-info {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .course-price {
-      text-align: left;
-      margin-top: 10px;
-    }
-  
-    .add-to-cart-btn {
-      width: 100%;
-    }
-  
-    .course-guarantee {
-      font-size: 0.85rem;
-    }
-  
-    .course-learn h2 {
-      font-size: 1.2rem;
-    }
-  
-    .course-learn ul li {
-      font-size: 0.9rem;
-    }
-  }
-  
-  /* Tablet responsiveness */
-  @media (max-width: 1024px) {
-    .course-header {
-      flex-direction: row;
-      align-items: center;
-    }
-  
-    .course-video img {
-      max-width: 250px;
-      margin-left: 20px;
-    }
-  
-    .add-to-cart-btn {
-      width: 150px;
-    }
-  
-    .course-learn h2 {
-      font-size: 1.3rem;
-    }
-  
-    .course-learn ul li {
-      font-size: 1rem;
-    }
+    align-items: center;
   }
 
-  .accordian_div{
-    background-color: #d6e5ee;
-    padding: 20px;
+  .course-title {
+    margin-right: 0;
+    text-align: center;
   }
-  
-  .accordion-flush{
-    background-color: #d6e5ee;
+
+  .course-video img {
+    max-width: 100%;
   }
+
+  .course-info {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .course-price,
+  .course-duration {
+    text-align: center;
+  }
+
+  .add-to-cart-btn {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .course-title h1 {
+    font-size: 20px;
+  }
+
+  .course-title p {
+    font-size: 14px;
+  }
+
+  .add-to-cart-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .course-learn h2 {
+    font-size: 18px;
+  }
+
+  .course-learn ul li {
+    font-size: 14px;
+  }
+}
+/* Register Button Styling */
+.add-to-cart-btn {
+  flex-shrink: 0;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase; /* Ensures a professional look */
+}
+
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure alignment and layout in course-info */
+.course-info > button {
+  flex-shrink: 0;
+  min-width: 120px; /* Keeps button size consistent */
+  align-self: center;
+}

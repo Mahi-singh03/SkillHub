@@ -6,6 +6,7 @@ import logo from '../Images/logo.png';
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -15,15 +16,27 @@ const NavBar = () => {
       setIsLoggedIn(user !== null);
     };
 
-    // Initial check
+    const updateRegistrationStatus = () => {
+      const isUserRegistered = localStorage.getItem('isRegistered');
+      setIsRegistered(isUserRegistered === 'true');
+    };
+
+    // Initial checks
     updateLoginStatus();
+    updateRegistrationStatus();
 
     // Listen for changes in localStorage
-    window.addEventListener('storage', updateLoginStatus);
+    window.addEventListener('storage', () => {
+      updateLoginStatus();
+      updateRegistrationStatus();
+    });
 
     // Cleanup listener on component unmount
     return () => {
-      window.removeEventListener('storage', updateLoginStatus);
+      window.removeEventListener('storage', () => {
+        updateLoginStatus();
+        updateRegistrationStatus();
+      });
     };
   }, [location.pathname]);
 
@@ -58,12 +71,14 @@ const NavBar = () => {
           >
             Courses
           </Link>
-          <Link
-            className={`nav-link ${location.pathname === '/Registration' ? 'active' : ''}`}
-            to="/Registration"
-          >
-            Register
-          </Link>
+          {!isRegistered && (
+            <Link
+              className={`nav-link ${location.pathname === '/Registration' ? 'active' : ''}`}
+              to="/Registration"
+            >
+              Register
+            </Link>
+          )}
           <Link
             className={`nav-link ${location.pathname === '/Gallery' ? 'active' : ''}`}
             to="/Gallery"
