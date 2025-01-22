@@ -269,7 +269,7 @@
 .add-to-cart-btn:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(53, 47, 47, 0.2);
 }
 
 /* Ensure alignment and layout in course-info */
