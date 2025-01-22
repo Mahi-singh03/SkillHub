@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import image from "../Images/b3.jpg";
 import image_2 from "../Images/React.jpg";
 import "../css/Home.css";
-import im1  from '../Images/IMG_9070.JPG'
-import im2  from '../Images/IMG_9071.JPG'
+import im1 from '../Images/IMG_9070.JPG';
+import im2 from '../Images/IMG_9071.JPG';
 
 const App = () => {
   const scrollLeft = () => {
@@ -61,22 +61,102 @@ const App = () => {
       <div className="card-slider-container">
         <button className="scroll-btn left" onClick={scrollLeft}>&lt;</button>
         <div id="card-slider" className="card-slider">
-          {[...Array(5)].map((_, index) => (
-            <div key={index} className="card">
-              <img src={image_2} className="card-img-top" alt={`Card ${index + 1}`} />
-              <div className="card-body">
-                <h5 className="card-title">Course {index + 1}</h5>
-                <p className="card-text">Details of course {index + 1}.</p>
-                <Link to="/Registration" className="btn btn-primary">Register</Link>
-              </div>
+          
+          <div className="card" style={{ width: '18rem' }}>
+            <img src={image_2} className="card-img-top" alt="Card image" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <Link to="#" className="btn btn-primary">Go somewhere</Link>
             </div>
-          ))}
+          </div>
+          
+          <div className="card" style={{ width: '18rem' }}>
+            <img src={image_2} className="card-img-top" alt="Card image" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <Link to="#" className="btn btn-primary">Go somewhere</Link>
+            </div>
+          </div>
+          
+          <div className="card" style={{ width: '18rem' }}>
+            <img src={image_2} className="card-img-top" alt="Card image" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <Link to="#" className="btn btn-primary">Go somewhere</Link>
+            </div>
+          </div>
+
+          <div className="card" style={{ width: '18rem' }}>
+            <img src={image_2} className="card-img-top" alt="Card image" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <Link to="#" className="btn btn-primary">Go somewhere</Link>
+            </div>
+          </div>
+
+          <div className="card" style={{ width: '18rem' }}>
+            <img src={image_2} className="card-img-top" alt="Card image" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <Link to="#" className="btn btn-primary">Go somewhere</Link>
+            </div>
+          </div>
+
+          <div className="card" style={{ width: '18rem' }}>
+            <img src={image_2} className="card-img-top" alt="Card image" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <Link to="#" className="btn btn-primary">Go somewhere</Link>
+            </div>
+          </div>
+
+          <div className="card" style={{ width: '18rem' }}>
+            <img src={image_2} className="card-img-top" alt="Card image" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <Link to="#" className="btn btn-primary">Go somewhere</Link>
+            </div>
+          </div>
+
+          <div className="card" style={{ width: '18rem' }}>
+            <img src={image_2} className="card-img-top" alt="Card image" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <Link to="#" className="btn btn-primary">Go somewhere</Link>
+            </div>
+          </div>
+
+          <div className="card" style={{ width: '18rem' }}>
+            <img src={image_2} className="card-img-top" alt="Card image" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <Link to="#" className="btn btn-primary">Go somewhere</Link>
+            </div>
+          </div>
+
+          <div className="card" style={{ width: '18rem' }}>
+            <img src={image_2} className="card-img-top" alt="Card image" />
+            <div className="card-body">
+              <h5 className="card-title">Card title</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <Link to="#" className="btn btn-primary">Go somewhere</Link>
+            </div>
+          </div>
         </div>
         <button className="scroll-btn right" onClick={scrollRight}>&gt;</button>
       </div>
 
       <div className="see-all-btn-container">
-        <Link to="/courses" className="see-all-btn ">See All Courses</Link>
+        <Link to="/courses" className="see-all-btn">See All Courses</Link>
       </div>
 
       <h2>About Us</h2>
