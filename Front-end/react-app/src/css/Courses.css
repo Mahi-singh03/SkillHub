@@ -39,7 +39,12 @@
 }
 
 @media (max-width: 768px) {
-  .card {
+  .card1 {
     margin-bottom: 1rem;
+    max-width: 900px;
+  }
+  .card-body1{
+    width: 330px;
+    
   }
 }
