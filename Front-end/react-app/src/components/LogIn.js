@@ -3,7 +3,7 @@ import '../css/Login.css';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
@@ -23,20 +23,20 @@ const Login = () => {
     setError(null); // Reset error state before submission
     setLoading(true); // Set loading state to true
 
-    // Basic client-side validation for email
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      setError('Please enter a valid email address.');
+    // Basic client-side validation for phone number
+    if (!/^\d{10}$/.test(phoneNumber)) {
+      setError('Please enter a valid 10-digit phone number.');
       setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch('http://localhost:5000/Login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ phoneNumber, password }),
       });
 
       const data = await response.json();
@@ -47,7 +47,7 @@ const Login = () => {
         window.dispatchEvent(new Event('storage')); // Notify other components
         navigate('/', { replace: true }); // Redirect to home
       } else {
-        setError(data.message || 'Failed to log in. Please check your credentials.');
+        setError(data.error || 'Failed to log in. Please check your credentials.');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -63,13 +63,13 @@ const Login = () => {
         <h1>Log In</h1>
         <div className="inset">
           <p>
-            <label htmlFor="email">EMAIL ADDRESS</label>
+            <label htmlFor="phoneNumber">PHONE NUMBER</label>
             <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              id="email"
+              type="tel"
+              name="phoneNumber"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              id="phoneNumber"
               required
             />
           </p>

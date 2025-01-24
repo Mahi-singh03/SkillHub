@@ -51,14 +51,13 @@ input:focus {
 .toggle-password {
   position: absolute;
   right: 10px;
-  top: 50%;
+  top: 55%;
   transform: translateY(-40%);
-  background: #ffffff;
   color: #000;
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  height: 30px;
+  height: 0px;
   width: 70px;
 }
 
