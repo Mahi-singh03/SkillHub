@@ -20,7 +20,7 @@
 
 .carousel-item img {
   width: 100%;
-  height: 500px;
+  height: 550px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -63,6 +63,10 @@
   display: none;
 }
 
+.location{
+  height: 40px;
+  width: 80px;
+}
 .card {
   min-width: 220px;
   flex-shrink: 0;
@@ -131,7 +135,7 @@
 
 h2 {
   text-align: center;
-  font-size: 24px;
+  font-size: 36px;
   margin-top: 40px;
   /* background-color: #218838; */
   padding-top: 20px;
@@ -141,19 +145,39 @@ h2 {
   padding: 40px 0;
   padding-bottom: 0;
 }
-
+/* General Styling */
 .map-container {
   display: flex;
-  gap: 20px;
+  flex-direction: column; /* Stack address, image, and map by default */
   align-items: center;
+  gap: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.map-container p {
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.map-container div {
+  display: flex;
+  gap: 30px;
+  width: 100%;
 }
 
 .map-container iframe,
 .map-container img {
   flex: 1;
-  height: 400px;
+  height: 600px; /* Increased height for better visibility */
   object-fit: cover;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
 /* Mobile Styling */
@@ -164,7 +188,7 @@ h2 {
   }
 
   .carousel-item img {
-    height: 400px;
+    height: 300px;
     border-radius: 8px;
   }
 
@@ -210,15 +234,47 @@ h2 {
     font-size: 14px;
     padding: 8px 16px;
   }
-
   .map-container {
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: column; /* Address stays above, map and image align horizontally */
+    text-align: left;
+  }
+
+  .map-container div {
+    flex-direction: row; /* Side-by-side layout for map and image */
+    gap: 30px;
   }
 
   .map-container iframe,
   .map-container img {
-    height: 250px;
-    width: 300px;
+    height: 700px; /* Larger height for desktop */
+  }
+}
+@media (max-width: 768px) {
+  .map-container {
+    padding: 10px;
+    gap: 15px; /* Reduced gap for mobile */
+  }
+
+  .map-container div {
+    flex-direction: column; /* Stack map and image vertically */
+    gap: 15px; /* Space between map and image */
+  }
+
+  .map-container iframe,
+  .map-container img {
+    width: 100%; /* Full width for mobile */
+    height: 400px; /* Reduced height for mobile */
+  }
+  .map-container iframe{
+    height: 600px;
+  }
+
+  .map-container p {
+    font-size: 18px; /* Slightly smaller font for mobile */
+    text-align: center;
+  }
+  .location{
+    height: 40px;
+    width: 80px;
   }
 }

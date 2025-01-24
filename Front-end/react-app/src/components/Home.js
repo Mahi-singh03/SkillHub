@@ -1,31 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import image_2 from "../Images/React.jpg";
 import "../css/Home.css";
-import im1 from "../Images/IMG_9070.JPG";
-import im2 from "../Images/IMG_9071.JPG";
+import im3 from "../Images/1Carsol.jpeg";
+import im1 from "../Images/2Carsol.jpeg";
+import im2 from "../Images/3Carsol.jpeg";
+import im9 from "../Images/locatio.png";
 
 // Importing Course Logos
 import HTML from "../Images/CourseLOGO/HTML.jpg";
 import REACT from "../Images/CourseLOGO/REACT.jpg";
 import MERN from "../Images/CourseLOGO/MERN.jpg";
-import year from "../Images/CourseLOGO/1year.jpg";
 import Autocad from "../Images/CourseLOGO/Autocad.jpg";
 import office from "../Images/CourseLOGO/office.jpg";
 import coral from "../Images/CourseLOGO/coral.jpg";
 import PS from "../Images/CourseLOGO/PS.png";
 
 import out from "../Images/OUT.jpg";
-
-const CarouselItem = ({ image, label, description }) => (
-  <div className="carousel-item">
-    <img src={image} className="d-block w-100 cropped-img" alt={label} />
-    <div className="carousel-caption d-none d-md-block">
-      <h5>{label}</h5>
-      <p>{description}</p>
-    </div>
-  </div>
-);
 
 const CourseCard = ({ image, title, description, link }) => (
   <div className="card" style={{ width: "18rem" }}>
@@ -57,7 +47,8 @@ const App = () => {
     {
       image: HTML,
       title: "HTML, CSS, and JS",
-      description: "3 months course covering all the concepts of HTML, CSS, and JS.",
+      description:
+        "3 months course covering all the concepts of HTML, CSS, and JS.",
     },
     {
       image: REACT,
@@ -74,7 +65,7 @@ const App = () => {
       title: "MERN Stack",
       description: " course covering frontend and backend development .",
     },
- 
+
     {
       image: office,
       title: "MS Office Suite",
@@ -95,7 +86,7 @@ const App = () => {
   return (
     <div className="home-container">
       {/* Carousel Section */}
-  
+
       <div id="carouselExampleCaptions" className="carousel slide">
         <div className="carousel-indicators">
           <button
@@ -148,7 +139,7 @@ const App = () => {
           </div>
           <div className="carousel-item">
             <img
-              src={im1}
+              src={im3}
               className="d-block w-100 cropped-img"
               alt="Third slide"
             />
@@ -216,14 +207,24 @@ const App = () => {
       {/* Map Section */}
       <h2>Visit Us</h2>
       <div className="map-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.113396926186!2d74.35858631464047!3d31.50613188138001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3918e1c4c5e5f1e5%3A0x5c4e3c1b7e6c4f0e!2sGulberg%20III%2C%20Lahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1625560490130!5m2!1sen!2s"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
-        <img src={out} alt="Outside view" />
+        <img className="location" src={im9}></img>
+
+        <p>Chandigarh Chownk, Garhshankar, Hoshiarpur, Punajab</p>
+
+        <div>
+          <img src={out} alt="Outside view" />
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.113396926186!2d74.35858631464047!3d31.50613188138001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3918e1c4c5e5f1e5%3A0x5c4e3c1b7e6c4f0e!2sGulberg%20III%2C%20Lahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1625560490130!5m2!1sen!2s"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
+
+      <h2>About Us</h2>   
+
+
     </div>
   );
 };

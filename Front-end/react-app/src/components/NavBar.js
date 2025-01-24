@@ -101,7 +101,7 @@ const NavBar = () => {
           >
             Courses
           </Link>
-          {!isRegistered && (
+          {!isLoggedIn && !isRegistered && (
             <Link
               className={`nav-link ${location.pathname === '/Registration' ? 'active' : ''}`}
               to="/Registration"
