@@ -1,33 +1,36 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import "../css/CourseCard.css";
-import image from "../Images/React.jpg";
+import courses from "./COURS-DATA"; // Importing course data
 
 function CourseCard() {
+  const { courseID } = useParams(); // Get course ID from URL params
+  const course = courses.find((c) => c.courseID === parseInt(courseID)); // Find course by ID
+
+  if (!course) {
+    return <h2 className="text-center">Course not found</h2>;
+  }
+
   return (
     <div className="course-card">
       <div className="course-header">
         <div className="course-title">
-          <h1>The Complete Python Bootcamp From Zero to Hero in Python</h1>
-          <p>
-            Learn Python like a professional! Start from the basics and go all the way to creating your own applications and games.
-          </p>
+          <h1>{course.courseName}</h1>
+          <p>{course.description}</p>
         </div>
         <div className="course-video">
-          <img src={image} alt="Preview" />
+          <img src={course.CourseImage} alt={course.courseName} />
         </div>
       </div>
 
       <div className="course-info">
         <div className="course-price">
-          <span className="price">₹4499</span>
-          <span className="original-price">₹7,099</span>
-          <span className="discount">86% off</span>
-          <div className="offer-expiry">
-            <p>5 hours left at this price!</p>
-          </div>
+          <span className="price">₹{course.courseFee}</span>
+          <span className="original-price">₹{Math.floor(course.courseFee * 1.5)}</span>
+          <span className="discount">30% off</span>
         </div>
         <div className="course-duration">
-          <span>Duration: 6 months</span>
+          <span>Duration: {course.courseDuration}</span>
         </div>
         <button className="add-to-cart-btn">Register</button>
       </div>
@@ -35,11 +38,9 @@ function CourseCard() {
       <div className="course-learn">
         <h2>What you'll learn</h2>
         <ul>
-          <li>Leverage the power of Python to solve tasks efficiently.</li>
-          <li>Use Python for work problems or personal projects.</li>
-          <li>Learn advanced Python features like collections and timestamps.</li>
-          <li>Create a portfolio of Python-based projects to showcase.</li>
-          <li>Learn both Python 2 and Python 3 professionally.</li>
+          {course.courseLearnings.map((point, index) => (
+            <li key={index}>{point}</li>
+          ))}
         </ul>
       </div>
 
@@ -64,10 +65,20 @@ function CourseCard() {
               data-bs-parent="#accordionFlushExample"
             >
               <div className="accordion-body">
-                Explore detailed topics, projects, and exercises included in this course.
+                {course.courseSyllabus.map((module, index) => (
+                  <div key={index}>
+                    <h4>{module.module}</h4>
+                    <ul>
+                      {module.topics.map((topic, idx) => (
+                        <li key={idx}>{topic}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
+
           <div className="accordion-item">
             <h2 className="accordion-header">
               <button
@@ -87,10 +98,11 @@ function CourseCard() {
               data-bs-parent="#accordionFlushExample"
             >
               <div className="accordion-body">
-                Suitable for beginners, professionals, and anyone eager to master Python.
+                Suitable for beginners, professionals, and anyone eager to learn {course.courseName}.
               </div>
             </div>
           </div>
+
           <div className="accordion-item">
             <h2 className="accordion-header">
               <button
@@ -110,7 +122,7 @@ function CourseCard() {
               data-bs-parent="#accordionFlushExample"
             >
               <div className="accordion-body">
-                Get answers to the most common questions about the course and its content.
+                Get answers to common questions about {course.courseName} and its content.
               </div>
             </div>
           </div>

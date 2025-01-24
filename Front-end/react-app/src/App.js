@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import PrivateComponent from './components/privateRotes'; // Assuming this handles route protection
+import PrivateComponent from './components/privateRotes'; // Handles route protection
 import Login from './components/LogIn';
 import DetailBar from './components/Detail-Bar';
 import Contact from './components/contact';
@@ -15,7 +15,6 @@ import CourseCard from './components/CoursesDetails';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [selectedCourse, setSelectedCourse] = useState(null); // Track the selected course
 
   useEffect(() => {
     const handleStorageChange = () => {
@@ -40,14 +39,8 @@ function App() {
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<Home />} />
-          <Route
-            path="/Courses"
-            element={<Courses setSelectedCourse={setSelectedCourse} />}
-          />
-          <Route
-            path="/CourseCard"
-            element={<CourseCard course={selectedCourse} />}
-          />
+          <Route path="/Courses" element={<Courses />} />
+          <Route path="/course/:courseID" element={<CourseCard />} /> {/* Dynamic Course Details */}
           <Route path="/Registration" element={<Registration />} />
           <Route path="/Gallery" element={<h1>Gallery</h1>} />
           <Route path="/Login" element={<Login />} />
