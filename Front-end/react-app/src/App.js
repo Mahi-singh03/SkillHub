@@ -12,6 +12,7 @@ import Courses from './components/Courses';
 import Registration from './components/Registration';
 import ScrollToTop from './components/ScrollToTop';
 import CourseCard from './components/CoursesDetails';
+import Gallery from './components/gallery'; // Updated import
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -42,7 +43,7 @@ function App() {
           <Route path="/Courses" element={<Courses />} />
           <Route path="/course/:courseID" element={<CourseCard />} /> {/* Dynamic Course Details */}
           <Route path="/Registration" element={<Registration />} />
-          <Route path="/Gallery" element={<h1>Gallery</h1>} />
+          <Route path="/Gallery" element={<Gallery />} /> {/* Updated Route */}
           <Route path="/Login" element={<Login />} />
           
           {/* Protected routes */}

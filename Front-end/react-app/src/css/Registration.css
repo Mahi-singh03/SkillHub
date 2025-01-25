@@ -15,7 +15,7 @@ body, h1, input, select, button {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background: #d6d3d3;
+  background: #f3f2b0fa;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

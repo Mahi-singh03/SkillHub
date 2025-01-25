@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "../css/CourseCard.css";
-import courses from "./COURS-DATA"; // Importing course data
+import courses from "./data/COURS-DATA"; // Importing course data
 
 function CourseCard() {
   const { courseID } = useParams(); // Get course ID from URL params

@@ -1,4 +1,8 @@
 /* Desktop and default styling */
+body{
+  background-color: rgb(230, 237, 255);
+}
+
 .home-container {
   padding: 20px;
 }
@@ -11,6 +15,7 @@
   max-width: 100%;
   box-sizing: border-box;
   height: 700px;
+  padding-top: 30px;
 }
 
 .carousel-inner {
@@ -78,7 +83,7 @@
 }
 
 .card-body {
-  background-color: #aec4b3;
+  background-color: #edf583cb;
 }
 
 .card:hover {
@@ -103,10 +108,13 @@
   transform: translateY(-50%);
   z-index: 10;
 }
-
+.card-title{
+  padding: 10px;
+  font-weight: 55;
+}
 .scroll-btn.left {
   left: 0;
-}
+}s
 
 .scroll-btn.right {
   right: 0;
@@ -278,3 +286,80 @@ h2 {
     width: 80px;
   }
 }
+/* About Us Section Styles */
+.about-us {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.about-us p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Card Container */
+.card-container2 {
+  display: flex; /* Enables side-by-side layout */
+  flex-wrap: wrap; /* Allows wrapping to the next line on smaller screens */
+  gap: 1.5rem; /* Adds space between the cards */
+  justify-content: center; /* Centers the cards horizontally */
+}
+
+/* Card Styles */
+.card2 {
+  width: 18rem; /* Card width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 0.75rem; /* Rounded corners */
+  overflow: hidden; /* Ensures the content doesn't overflow */
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card2:hover {
+  transform: translateY(-5px); /* Lifts the card slightly on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhances shadow on hover */
+}
+
+/* Card Image */
+.card-img-top2 {
+  width: 100%; /* Ensures the image fits within the card */
+  height: auto;
+  object-fit: cover; /* Maintains aspect ratio and covers the area */
+  border-bottom: 2px solid #eee;
+}
+
+/* Card Body */
+.card-body2 {
+  padding: 1rem;
+  text-align: center; /* Centers text inside the card */
+}
+
+.card-text2 {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card2 {
+    width: 45%; /* Reduces card width for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .card2 {
+    width: 100%; /* Full width for very small screens */
+  }
+
+  .card-body2 {
+    padding: 0.75rem;
+  }
+
+  .card-text2 {
+    font-size: 0.9rem;
+  }
+}
+  

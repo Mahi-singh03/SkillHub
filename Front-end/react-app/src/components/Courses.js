@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Courses.css";
-import courses from "./COURS-DATA"; // Importing course data dynamically
+import courses from "./data/COURS-DATA"; // Importing course data dynamically
 
 const Courses = () => {
   return (

@@ -6,7 +6,7 @@ import "../css/contectANDfooter.css"
 const Footer = ()=>{
     return(
         <footer>
-            <p>2025 Restaurants. All rights reserved.</p>
+            <p>Slillup 2025. All rights reserved.</p>
         </footer>
     )
 }
