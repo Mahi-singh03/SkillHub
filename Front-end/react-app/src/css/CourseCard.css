@@ -73,6 +73,8 @@ h2 {
 
 /* Course Card */
 .course-card {
+  padding: 30px;
+  margin: 30px;
   max-width: 1200px;
   margin: 20px auto;
   padding: 25px;

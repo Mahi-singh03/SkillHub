@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-  background-color: rgb(178, 191, 224);
+  background-color: rgb(19, 40, 94);
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -160,7 +160,7 @@ h2 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10; /* Ensure buttons are above the cards */
+  z-index: 100; /* Ensure buttons are above the cards */
 }
 
 .scroll-btn.left {
@@ -191,6 +191,11 @@ h2 {
   background-color: #218838;
 }
 /* Map Section */
+
+.location{
+  max-width: 100px;
+}
+
 .map-container {
   display: flex;
   flex-direction: column;
