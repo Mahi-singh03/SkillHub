@@ -286,7 +286,7 @@ const courses = [
     courseID : 7,
     CourseImage: PR,
     courseName: "Premiere Pro (6 Months)",
-    description: "Video editing software for professional films and video projects.",
+    description: "Video editing software for films and video projects.",
     courseDuration: "6 Months",
     courseFee: "20000",
     courseLearnings: [
@@ -483,7 +483,7 @@ const courses = [
       courseID : 12,
       CourseImage: Office,
       description: " 3-month course covering computer operations and software skills",
-      courseName: "Computer Course (3 Months)",
+      courseName: "Comp. Course (3 Months)",
       courseDuration: "3 Months",
       courseFee: "10000",
       courseLearnings: [

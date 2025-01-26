@@ -1,25 +1,29 @@
-/* CourseCard.css */
-
-
-.card-container {
-  display: flex; /* Enables flexbox for side-by-side layout */
-  flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
-  gap: 1rem; /* Adds space between the cards */
-  justify-content: center; /* Centers the cards horizontally */
-  padding: 1rem; /* Adds some padding around the container */
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
 }
 
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Individual Card */
 .card {
-  width: 18rem; /* Default card width */
-  margin: 0; /* No extra margin since gap handles spacing */
+  width: 18rem;
+  margin: 0;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #fff;
-}
-h2{
-  font-weight: 600;
 }
 
 .card:hover {
@@ -38,41 +42,36 @@ h2{
   text-align: center;
 }
 
+h2 {
+  font-weight: 600;
+}
+
 .card-text {
   font-size: 1rem;
   line-height: 1.5;
   color: #555;
 }
 
+/* Responsive Cards */
 @media (max-width: 768px) {
   .card {
-    width: 45%; /* Cards take 45% of the container on smaller screens */
+    width: 45%;
   }
 }
 
 @media (max-width: 576px) {
   .card {
-    width: 100%; /* Cards take full width on very small screens */
+    width: 100%;
   }
-
   .card-body {
     padding: 0.75rem;
   }
-
   .card-text {
     font-size: 0.9rem;
   }
 }
 
-
-/* General Styles */
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f9fa;
-}
-
+/* Course Card */
 .course-card {
   max-width: 1200px;
   margin: 20px auto;
@@ -89,7 +88,7 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Header Section */
+/* Course Header */
 .course-header {
   display: flex;
   flex-direction: column;
@@ -118,10 +117,10 @@ body {
 }
 
 .course-video img:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
-/* Info Section */
+/* Course Info */
 .course-info {
   display: flex;
   flex-wrap: wrap;
@@ -160,6 +159,7 @@ body {
   color: #495057;
 }
 
+/* Add to Cart Button */
 .add-to-cart-btn {
   padding: 12px 24px;
   font-size: 1.1rem;
@@ -177,10 +177,6 @@ body {
 }
 
 /* Learn Section */
-.course-learn {
-  margin-bottom: 30px;
-}
-
 .course-learn h2 {
   font-size: 1.8rem;
   font-weight: bold;
@@ -195,7 +191,7 @@ body {
 
 .course-learn li {
   font-size: 1.1rem;
-  color: #555555;
+  color: #555;
   margin-bottom: 10px;
   transition: color 0.3s ease;
 }
@@ -214,17 +210,12 @@ body {
   border-bottom: 1px solid #dee2e6;
 }
 
-.accordion-header {
-  background-color: #f8f9fa;
-}
-
 .accordion-button {
   font-size: 1.1rem;
   font-weight: bold;
   color: #495057;
   background-color: #f8f9fa;
   border: none;
-  border-radius: 0;
   padding: 12px 20px;
   transition: background-color 0.3s ease;
 }
@@ -250,26 +241,20 @@ body {
     flex-direction: row;
     align-items: center;
   }
-
   .course-title {
     flex: 1;
   }
-
   .course-video {
     flex: 1;
     text-align: right;
   }
-
   .course-video img {
     width: 80%;
     max-width: 350px;
-    height: auto;
   }
-
   .course-info {
     justify-content: space-between;
   }
-
   .add-to-cart-btn {
     font-size: 1.2rem;
     padding: 14px 28px;
@@ -280,19 +265,15 @@ body {
   .course-card {
     padding: 40px;
   }
-
   .course-title h1 {
     font-size: 2.5rem;
   }
-
   .course-title p {
     font-size: 1.2rem;
   }
-
   .course-price .price {
     font-size: 2rem;
   }
-
   .accordion-button {
     font-size: 1.2rem;
   }

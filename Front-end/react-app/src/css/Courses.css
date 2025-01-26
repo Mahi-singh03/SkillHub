@@ -20,12 +20,14 @@
 }
 
 .card-img-top {
-  height: 180px;
-  object-fit: cover;
+  width: 100%; /* Ensures the image takes the full width of the card */
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensures the image is cropped rather than stretched */
 }
 
 .card-body {
   text-align: center;
+  height: 200px;
 }
 
 .card-title {
@@ -42,9 +44,15 @@
   .card1 {
     margin-bottom: 1rem;
     max-width: 900px;
-  }
-  .card-body1{
-    width: 330px;
     
+  }
+  
+  .card-body1 {
+    width: 330px;
+    max-height: 400px;
+  }
+
+  .card-img-top {
+    height: 180px; /* Slightly smaller height for mobile screens */
   }
 }
