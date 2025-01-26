@@ -126,7 +126,7 @@ const courses = [
   {
     courseID : 3,
     CourseImage: MERN,
-    courseName: "MERN Full Stack ( 1 year )",
+    courseName: "MERN FullStack ( 1 year )",
     description: "1-year course covering both frontend and backend from basics",
     courseDuration: "1 Year",
     courseFee: "50000",

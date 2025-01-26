@@ -1,23 +1,18 @@
+/* Courses.css */
 .container {
   padding: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem; /* Adds space between cards */
-  justify-content: center; /* Centers the cards */
 }
 
 .main-heading {
   margin-bottom: 2rem;
   font-size: 2rem;
   font-weight: bold;
-  text-align: center;
 }
 
 .card {
   border: none;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
-  margin-bottom: 2.5rem; /* Adds space between rows */
 }
 
 .card:hover {
@@ -25,9 +20,9 @@
 }
 
 .card-img-top {
-  width: 100%; 
-  height: 200px; 
-  object-fit: cover; 
+  width: 100%; /* Ensures the image takes the full width of the card */
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensures the image is cropped rather than stretched */
 }
 
 .card-body {
@@ -45,19 +40,19 @@
   border: none;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .card1 {
     margin-bottom: 1rem;
     max-width: 900px;
+    
   }
-
+  
   .card-body1 {
     width: 330px;
     max-height: 400px;
   }
 
   .card-img-top {
-    height: 180px;
+    height: 180px; /* Slightly smaller height for mobile screens */
   }
 }

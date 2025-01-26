@@ -313,7 +313,7 @@ h2 {
   }
 
   .card img {
-    height: 150px;
+    height: 100%;
     object-fit: cover;
   }
 

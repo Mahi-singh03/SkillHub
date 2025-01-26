@@ -13,8 +13,8 @@ const Courses = () => {
             <div className="card card1">
               <img src={course.CourseImage} className="card-img-top" alt={course.courseName} />
               <div className="card-body card-body1">
-                <h5 className="card-title">{course.courseName}</h5>
-                <p className="card-text">{course.description}</p>
+                <h5 className="card-title1">{course.courseName}</h5>
+                <p className="card-text1">{course.description}</p>
                 <Link to={`/course/${course.courseID}`} className="btn btn-primary">
                   Details
                 </Link>

@@ -151,7 +151,7 @@ const Registration = () => {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               aria-label={showPassword ? 'Hide password' : 'Show password'}
-              className="toggle-password"
+              className="toggle-password1"
             >
               {showPassword ? <span>&#x1F441;</span> : <span>&#x1F576;</span>}
             </button>
