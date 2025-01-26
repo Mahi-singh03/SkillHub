@@ -16,7 +16,7 @@ import pE from "../Images/gallery/p5.jpeg";
 const Gallery = () => {
   return (
     <div className="gallery">
-      <h1> Gallery</h1>
+     <h1 className="text-center main-heading">Gallery</h1>
       <div>
       <img className="A" src={pA} alt="Gallery" />
     </div>

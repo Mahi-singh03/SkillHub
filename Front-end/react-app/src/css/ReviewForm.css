@@ -1,0 +1,131 @@
+.review-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.review-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-section input, .review-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.review-section textarea {
+  height: 100px;
+  resize: none;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.star {
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.star.active {
+  color: #ffd700;
+}
+
+.review-section button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.review-section button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.reviews-list {
+  margin-top: 40px;
+}
+
+.review-item {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.review-item h4 {
+  margin-bottom: 10px;
+}
+
+.review-item p {
+  margin-bottom: 20px;
+}
+
+/* Responsive CSS */
+
+@media only screen and (max-width: 768px) {
+  .review-section {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .review-section input, .review-section textarea {
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .review-section textarea {
+    height: 50px;
+  }
+
+  .rating-container {
+    margin-bottom: 10px;
+  }
+
+  .star {
+    font-size: 18px;
+  }
+
+  .review-section button[type="submit"] {
+    padding: 5px;
+  }
+
+  .reviews-list {
+    margin-top: 20px;
+  }
+
+  .review-item {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .review-item h4 {
+    margin-bottom: 5px;
+  }
+
+  .review-item p {
+    margin-bottom: 10px;
+  }
+}

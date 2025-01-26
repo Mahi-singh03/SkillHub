@@ -17,6 +17,8 @@ import PS from "../Images/CourseLOGO/PS.png";
 
 import out from "../Images/OUT.jpg";
 
+import ReviewForm from "./ReviewForm";
+
 const CourseCard = ({ image, title, description, link }) => (
   <div className="card" style={{ width: "18rem" }}>
     <img src={image} className="card-img-top" alt={`${title} course`} />
@@ -213,7 +215,7 @@ const App = () => {
         </div>
       </div>
 
-      <h2>About Us</h2>   
+        {/* < ReviewForm /> */}
 
 
     </div>

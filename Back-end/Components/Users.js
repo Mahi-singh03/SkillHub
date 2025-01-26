@@ -1,47 +1,17 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 // Define the user schema
 const userSchema = new mongoose.Schema({
-  fullName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  fatherName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  emailAddress: {
-    type: String,
-    required: true,
-    unique: true,
-    match: [/\S+@\S+\.\S+/, 'Please use a valid email address'],
-  },
-  phoneNumber: {
-    type: String,
-    required: true,
-    match: [/^\d{10}$/, 'Phone number must be 10 digits'],
-  },
-  selectedCourse: {
-    type: String,
-    required: true,
-  },
-  address: {
-    type: String,
-    required: true,
-  },
-  qualification: {
-    type: String,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 8,
-  },
+  fullName: { type: String, required: true, trim: true },
+  fatherName: { type: String, required: true, trim: true },
+  emailAddress: { type: String, required: true, unique: true, match: [/\S+@\S+\.\S+/, 'Please use a valid email address'] },
+  phoneNumber: { type: String, required: true, match: [/^\d{10}$/, 'Phone number must be 10 digits'] },
+  selectedCourse: { type: String, required: true },
+  address: { type: String, required: true },
+  qualification: { type: String, required: true },
+  password: { type: String, required: true, minlength: 8 },
 });
 
 // Hash password before saving the user
@@ -61,10 +31,10 @@ userSchema.methods.isValidPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-// Define the generateToken method
+// Generate a JWT token
 userSchema.methods.generateToken = function () {
   const payload = { id: this._id, email: this.emailAddress, name: this.fullName };
-  const secretKey = process.env.JWT_SECRET || 'your_secret_key';
+  const secretKey = process.env.JWT_SECRET || 'default_secret';
   const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
   return token;
 };
