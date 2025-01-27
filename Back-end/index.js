@@ -1,16 +1,22 @@
-require('dotenv').config(); // Load .env variables
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const path = require('path');
-const connect = require('./Components/connection');
-const { DataModel } = require('./Components/Users');
-const { validations, validate } = require('./Components/validations');
+import dotenv from 'dotenv';
+dotenv.config(); // Load .env variables
+
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
+
+
+
+import connect from './Components/connection.js';
+import { DataModel } from './Components/Users.js';
+import { validations, validate } from './Components/validations.js';
+import path from 'path';
 
 // Express App Initialization
 const app = express();
+const __dirname = path.resolve();
+
 
 // Middleware
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || '*' })); // Handle CORS
@@ -146,6 +152,15 @@ app.get('/reviews', async (req, res) => {
     res.status(500).json({ error: 'Error fetching reviews', details: err.message });
   }
 });
+
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, '/Front-end/build')));
+
+// Handles any requests that don't match the ones above
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/Front-end/build/index.html'));
+});
+
 
 // Start the Server
 const PORT = process.env.PORT || 5000;
