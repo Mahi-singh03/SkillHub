@@ -6,8 +6,8 @@
   "scripts": {
     "test": "hi",
     "start": "node Back-end/index.js",
-    "dev":"node Back-end/index.js",
-    "build":" npm install && npm install --prefix Front-end && npm run build --prefix Front-end"
+    "dev": "node Back-end/index.js",
+    "build": " npm install && npm install --prefix Front-end && npm run build --prefix Front-end"
   },
   "keywords": [
     "hi"
@@ -15,7 +15,6 @@
   "author": "Mahi singh",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
