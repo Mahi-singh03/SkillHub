@@ -4,19 +4,20 @@ dotenv.config(); // Load .env variables
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
-
-
+import bcrypt from 'bcryptjs'; // Changed bcrypt to bcryptjs
+import { fileURLToPath } from 'url';
+import path from 'path';
 
 import connect from './Components/connection.js';
 import { DataModel } from './Components/Users.js';
 import { validations, validate } from './Components/validations.js';
-import path from 'path';
+
+// Fix for `__dirname` in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Express App Initialization
 const app = express();
-const __dirname = path.resolve();
-
 
 // Middleware
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || '*' })); // Handle CORS
@@ -26,9 +27,9 @@ app.use(express.json()); // Parse JSON request bodies
 (async () => {
   try {
     await connect();
-    console.log('Database connected successfully');
+    console.log('✅ Database connected successfully');
   } catch (error) {
-    console.error('Database connection failed:', error.message);
+    console.error('❌ Database connection failed:', error.message);
     process.exit(1); // Exit the process on connection failure
   }
 })();
@@ -68,12 +69,12 @@ app.post('/Registration', validations, validate, async (req, res) => {
     await newUser.save();
     const token = newUser.generateToken(); // Generate JWT token
     res.status(201).json({
-      message: 'Registration successful',
+      message: '✅ Registration successful',
       token,
       username: newUser.fullName,
     });
   } catch (err) {
-    console.error('Error saving user data:', err);
+    console.error('❌ Error saving user data:', err);
     res.status(500).json({ error: 'Error saving user data', details: err.message });
   }
 });
@@ -88,25 +89,25 @@ app.post('/Login', async (req, res) => {
     // Find the user by phone number
     const user = await DataModel.findOne({ phoneNumber });
     if (!user) {
-      return res.status(404).json({ error: 'User not found. Please check the phone number.' });
+      return res.status(404).json({ error: '❌ User not found. Please check the phone number.' });
     }
 
     // Compare the provided password with the hashed password in the database
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-      return res.status(401).json({ error: 'Invalid password. Please try again.' });
+      return res.status(401).json({ error: '❌ Invalid password. Please try again.' });
     }
 
     // Generate a JWT token
     const token = user.generateToken();
 
     res.status(200).json({
-      message: 'Login successful',
+      message: '✅ Login successful',
       token,
       username: user.fullName || user.phoneNumber,
     });
   } catch (err) {
-    console.error('Error during login:', err);
+    console.error('❌ Error during login:', err);
     res.status(500).json({ error: 'An error occurred during login', details: err.message });
   }
 });
@@ -127,7 +128,7 @@ app.post('/reviews', async (req, res) => {
   const { name, review, rating } = req.body;
 
   if (!name || !review || rating == null) {
-    return res.status(400).json({ error: 'Please provide name, review, and rating' });
+    return res.status(400).json({ error: '❌ Please provide name, review, and rating' });
   }
 
   try {
@@ -135,7 +136,7 @@ app.post('/reviews', async (req, res) => {
     await newReview.save();
     res.status(201).json(newReview);
   } catch (err) {
-    console.error('Error saving review:', err);
+    console.error('❌ Error saving review:', err);
     res.status(500).json({ error: 'Error saving review', details: err.message });
   }
 });
@@ -148,7 +149,7 @@ app.get('/reviews', async (req, res) => {
     const reviews = await Review.find().sort({ _id: -1 }); // Sort reviews by latest
     res.json(reviews);
   } catch (err) {
-    console.error('Error fetching reviews:', err);
+    console.error('❌ Error fetching reviews:', err);
     res.status(500).json({ error: 'Error fetching reviews', details: err.message });
   }
 });
@@ -158,12 +159,11 @@ app.use(express.static(path.join(__dirname, '/Front-end/build')));
 
 // Handles any requests that don't match the ones above
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/Front-end/build/index.html'));
+  res.sendFile(path.join(__dirname, '/Front-end/build/index.html'));
 });
-
 
 // Start the Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
+  console.log(`🚀 Server started on port ${PORT}`);
 });
