@@ -5,7 +5,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs'; // Changed bcrypt to bcryptjs
-import { fileURLToPath } from 'url';
+
 import path from 'path';
 
 import connect from './Components/connection.js';
@@ -14,8 +14,8 @@ import { validations, validate } from './Components/validations.js';
 
 
 // Fix for `__dirname` in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
+const __dirname = path.resolve();
 
 // Express App Initialization
 const app = express();
@@ -160,7 +160,7 @@ app.use(express.static(path.join(__dirname, '/Front-end/build')));
 
 // Handles any requests that don't match the ones above
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/Front-end/build/index.html'));
+  res.sendFile(path.resolve(__dirname, 'Front-end', 'build', 'index.html'));
 });
 
 // Start the Server
