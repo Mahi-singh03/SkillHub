@@ -1,4 +1,4 @@
-const { check, validationResult } = require('express-validator');
+import { check, validationResult } from 'express-validator';
 
 const validations = [
   check('fullName').not().isEmpty().withMessage('Full name is required'),
@@ -19,4 +19,4 @@ const validate = (req, res, next) => {
   next();
 };
 
-module.exports = { validations, validate };
+export { validations, validate };

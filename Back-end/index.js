@@ -9,8 +9,9 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 
 import connect from './Components/connection.js';
-import { DataModel } from './Components/Users.js';
+import  DataModel from './Components/Users.js';
 import { validations, validate } from './Components/validations.js';
+
 
 // Fix for `__dirname` in ES modules
 const __filename = fileURLToPath(import.meta.url);

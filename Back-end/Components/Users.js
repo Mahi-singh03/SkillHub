@@ -1,13 +1,22 @@
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import mongoose from 'mongoose';
 
 // Define the user schema
 const userSchema = new mongoose.Schema({
   fullName: { type: String, required: true, trim: true },
   fatherName: { type: String, required: true, trim: true },
-  emailAddress: { type: String, required: true, unique: true, match: [/\S+@\S+\.\S+/, 'Please use a valid email address'] },
-  phoneNumber: { type: String, required: true, match: [/^\d{10}$/, 'Phone number must be 10 digits'] },
+  emailAddress: { 
+    type: String, 
+    required: true, 
+    unique: true, 
+    match: [/\S+@\S+\.\S+/, 'Please use a valid email address'],
+  },
+  phoneNumber: { 
+    type: String, 
+    required: true, 
+    match: [/^\d{10}$/, 'Phone number must be 10 digits'],
+  },
   selectedCourse: { type: String, required: true },
   address: { type: String, required: true },
   qualification: { type: String, required: true },
@@ -42,4 +51,5 @@ userSchema.methods.generateToken = function () {
 // Create the User model
 const DataModel = mongoose.models.User || mongoose.model('registration', userSchema, 'registration');
 
-module.exports = { DataModel };
+// Export the model
+export default DataModel;
