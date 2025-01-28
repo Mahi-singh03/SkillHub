@@ -211,6 +211,7 @@ const App = () => {
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
+            title="Map" 
           ></iframe>
         </div>
       </div>
