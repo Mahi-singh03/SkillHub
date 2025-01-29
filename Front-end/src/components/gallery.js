@@ -9,6 +9,7 @@ import pB from "../Images/gallery/p2.jpeg";
 import pC from "../Images/gallery/p3.jpeg";
 import pD from "../Images/gallery/p4.jpeg";
 import pE from "../Images/gallery/p5.jpeg";
+import pF from "../Images/gallery/P1.JPG";
 
 
 
@@ -17,6 +18,9 @@ const Gallery = () => {
   return (
     <div className="gallery">
      <h1 className="text-center main-heading">Gallery</h1>
+     <div>
+      <img className="A" src={pF} alt="Gallery" />
+    </div>
       <div>
       <img className="A" src={pA} alt="Gallery" />
     </div>
