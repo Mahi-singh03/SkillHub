@@ -17,6 +17,16 @@ import PS from "../Images/CourseLOGO/PS.png";
 
 import out from "../Images/OUT.jpg";
 
+
+// imprting staff images
+
+import manoj from "../Images/staff/manoj.jpg";
+import NMAM from "../Images/staff/NMAM.jpg";
+import Aditya from "../Images/staff/Aditya.jpg";
+import PMAM from "../Images/staff/PMAM.jpg";
+
+
+
 import ReviewForm from "./ReviewForm";
 
 const CourseCard = ({ image, title, description, link }) => (
@@ -25,7 +35,6 @@ const CourseCard = ({ image, title, description, link }) => (
     <div className="card-body">
       <h5 className="card-title">{title}</h5>
       <p className="card-text">{description}</p>
-      
     </div>
   </div>
 );
@@ -184,7 +193,9 @@ const App = () => {
               link="/details"
             />
           ))}
+          <button className="add-to-cart-btn" >Register</button>
         </div>
+        
         <button className="scroll-btn right" onClick={scrollRight}>
           &gt;
         </button>
@@ -204,13 +215,60 @@ const App = () => {
 
         <div>
           <img src={out} alt="Outside view" />
-          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1706.142790207864!2d76.14644524579391!3d31.212816491294415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smap%20iframe!5e0!3m2!1sen!2sin!4v1738149476550!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3412.2960452443904!2d76.14162108300526!3d31.212526496183944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDEyJzQ1LjEiTiA3NsKwMDgnNDcuNCJF!5e0!3m2!1sen!2sin!4v1738210799312!5m2!1sen!2sin"
+            width="600"
+            height="450"
+            style={{ border: 1 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
 
-        {/* < ReviewForm /> */}
+      {/* Staff section */}
+
+      <h2>Our Staff</h2>
+
+      <div className="card-container1">
+        <div className="card1" style={{ width: '18rem' }}>
+          <img src={manoj} className="card-img-top1" alt="manoj" />
+          <div className="card-body1">
+            <p className="Name1">Manoj Barhpagga</p>
+            <p className="Designation1">Website designer</p>
+          </div>
+        </div>
 
 
+        <div className="card1" style={{ width: '18rem' }}>
+          <img src={NMAM} className="card-img-top1" alt="manoj" />
+          <div className="card-body1">
+            <p className="Name1">Neha</p>
+            <p className="Designation1">Computer Teacher</p>
+          </div>
+        </div>
+
+        <div className="card1" style={{ width: '18rem' }}>
+          <img src={PMAM} className="card-img-top1" alt="manoj" />
+          <div className="card-body1">
+            <p className="Name1"> Parteeksha</p>
+            <p className="Designation1">PTE Teacher </p>
+          </div>
+        </div>
+
+
+        <div className="card1" style={{ width: '18rem' }}>
+          <img src={Aditya} className="card-img-top1" alt="manoj" />
+          <div className="card-body1">
+            <p className="Name1"> Aditya Sharma</p>
+            <p className="Designation1"> Social Media Manager</p>
+          </div>
+        </div>
+
+      </div>
+
+      {/* < ReviewForm /> */}
     </div>
   );
 };

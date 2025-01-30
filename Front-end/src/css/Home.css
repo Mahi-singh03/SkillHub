@@ -359,3 +359,52 @@ h2 {
     font-size: 0.9rem;
   }
 }
+.card-container1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card1 {
+ 
+  height : 26rem; ;
+  margin: .9rem;
+  background-color: rgb(243, 248, 171);
+  border-radius: 20px;
+}
+
+.card-img-top1 {
+  margin: 10px;
+  width: 90%;
+  height: auto;
+  border-radius: 20px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.card-body1 {
+  text-align: center;
+}
+
+.Name1 {
+  padding-top: 10px;
+  font-size: 1.3rem;
+  font-weight: 900; 
+  color: rgb(0, 0, 0);
+  padding-bottom:-10px ;
+}
+
+.Designation1 {
+  font-size: 1.2rem;
+  color: rgb(59, 58, 58);
+  font-weight: 800;
+  padding-top: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    margin: 0.5rem;
+  }
+}
