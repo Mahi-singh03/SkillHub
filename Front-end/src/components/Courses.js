@@ -10,11 +10,11 @@ const Courses = () => {
       <div className="row justify-content-center">
         {courses.map((course) => (
           <div key={course.courseID} className="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div className="card card1">
+            <div className="card card">
               <img src={course.CourseImage} className="card-img-top" alt={course.courseName} />
-              <div className="card-body card-body1">
-                <h5 className="card-title1">{course.courseName}</h5>
-                <p className="card-text1">{course.description}</p>
+              <div className="card-body card-body">
+                <h5 className="card-title">{course.courseName}</h5>
+                <p className="card-text">{course.description}</p>
                 <Link to={`/course/${course.courseID}`} className="btn btn-primary">
                   Details
                 </Link>

@@ -368,7 +368,7 @@ h2 {
 
 .card1 {
  
-  height : 26rem; ;
+  height : 25rem; ;
   margin: .9rem;
   background-color: rgb(243, 248, 171);
   border-radius: 20px;
@@ -389,7 +389,7 @@ h2 {
 .Name1 {
   padding-top: 10px;
   font-size: 1.3rem;
-  font-weight: 900; 
+  font-weight: 700; 
   color: rgb(0, 0, 0);
   padding-bottom:-10px ;
 }
@@ -397,7 +397,7 @@ h2 {
 .Designation1 {
   font-size: 1.2rem;
   color: rgb(59, 58, 58);
-  font-weight: 800;
+  font-weight: 500;
   padding-top: 0;
 }
 
