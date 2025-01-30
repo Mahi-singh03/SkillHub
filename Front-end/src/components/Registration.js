@@ -55,7 +55,7 @@ const Registration = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/Registration', {
+      const response = await fetch('https://skillhub-a286.onrender.com/Registration', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

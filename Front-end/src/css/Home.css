@@ -383,7 +383,7 @@ h2 {
 }
 
 .card-body1 {
-  text-align: center;
+  text-align: left;
 }
 
 .Name1 {
@@ -392,6 +392,7 @@ h2 {
   font-weight: 700; 
   color: rgb(0, 0, 0);
   padding-bottom:-10px ;
+  padding-left: 20px;
 }
 
 .Designation1 {
@@ -399,6 +400,7 @@ h2 {
   color: rgb(59, 58, 58);
   font-weight: 500;
   padding-top: 0;
+  padding-left: 20px;
 }
 
 /* Responsive design */

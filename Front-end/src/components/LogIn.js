@@ -31,7 +31,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/Login', {
+      const response = await fetch('https://skillhub-a286.onrender.com/Login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

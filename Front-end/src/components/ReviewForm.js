@@ -9,7 +9,7 @@ const ReviewForm = () => {
 
   useEffect(() => {
     // Fetch existing reviews
-    fetch("http://localhost:5000/reviews")
+    fetch("http://skillhub-a286.onrender.com/reviews")
       .then((response) => response.json())
       .then((data) => setReviews(data));
   }, []);
@@ -17,7 +17,7 @@ const ReviewForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name && review && rating) {
-      fetch("http://localhost:5000/reviews", {
+      fetch("https://skillhub-a286.onrender.com/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
