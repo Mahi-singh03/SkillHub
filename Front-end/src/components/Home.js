@@ -269,6 +269,7 @@ const App = () => {
       </div>
 
       {/* < ReviewForm /> */}
+      <h2> Review us</h2>
     </div>
   );
 };
