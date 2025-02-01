@@ -109,4 +109,8 @@
   .hamburger-menu {
     display: block;
   }
+  .nav-logo2 {
+    display: none;
+  }
 }
+

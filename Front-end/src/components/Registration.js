@@ -86,9 +86,94 @@ const Registration = () => {
 
   return (
     <div>
+      <div>
       <h1 className="text-center main_heading">Register yourself</h1>
       <form onSubmit={handleRegistration} className="registration-form responsive">
-        <h1>Please enter your details</h1>
+        <h3>Please enter your details</h3>
+
+        {/* Full Name Field */}
+        <div className="form-group">
+          <label htmlFor="fullName">Full Name</label>
+          <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} id="fullName" required />
+        </div>
+
+        {/* Father's Name Field */}
+        <div className="form-group">
+          <label htmlFor="fatherName">Father's Name</label>
+          <input type="text" name="fatherName" value={formData.fatherName} onChange={handleInputChange} id="fatherName" required />
+        </div>
+
+        {/* Email Address Field */}
+        <div className="form-group">
+          <label htmlFor="emailAddress">Email Address</label>
+          <input type="email" name="emailAddress" value={formData.emailAddress} onChange={handleInputChange} id="emailAddress" required />
+        </div>
+
+        {/* Phone Number Field */}
+        <div className="form-group">
+          <label htmlFor="phoneNumber">Phone Number</label>
+          <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} id="phoneNumber" required />
+        </div>
+
+        {/* Course Selection Field */}
+        <div className="form-group">
+          <label htmlFor="selectedCourse">Course</label>
+          <select name="selectedCourse" value={formData.selectedCourse} onChange={handleInputChange} id="selectedCourse" required>
+            <option value="">Select a course</option>
+            {courses.map((course) => (
+              <option key={course} value={course}>{course}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Address Field */}
+        <div className="form-group">
+          <label htmlFor="address">Address</label>
+          <input type="text" name="address" value={formData.address} onChange={handleInputChange} id="address" required />
+        </div>
+
+        {/* Qualification Field */}
+        <div className="form-group">
+          <label htmlFor="qualification">Qualification</label>
+          <select name="qualification" value={formData.qualification} onChange={handleInputChange} id="qualification" required>
+            <option value="">Select a qualification</option>
+            {qualifications.map((qual) => (
+              <option key={qual} value={qual}>{qual}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Password Field */}
+        <div className="form-group password-group">
+          <label htmlFor="password">Password</label>
+          <div className="password-wrapper">
+            <input type={showPassword ? 'text' : 'password'} name="password" value={formData.password} onChange={handleInputChange} id="password" required />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+              className="toggle-password1"
+            >
+              {showPassword ? <span>&#x1F441;</span> : <span>&#x1F576;</span>}
+            </button>
+          </div>
+        </div>
+
+        {/* Display error message if any */}
+        {error && <div className="error-message">{error}</div>}
+
+        {/* Submit Button */}
+        <div className="form-actions">
+          <button type="submit" disabled={loading}>{loading ? 'Registering...' : 'Register'}</button>
+        </div>
+
+        {/* Login Redirect */}
+        <div className="login-redirect">
+          <span>Already have an account? <Link to="/Login">Log In</Link></span>
+        </div>
+      </form><h1 className="text-center main_heading">Register yourself</h1>
+      <form onSubmit={handleRegistration} className="registration-form responsive">
+        <h3>Please enter your details</h3>
 
         {/* Full Name Field */}
         <div className="form-group">
@@ -171,6 +256,7 @@ const Registration = () => {
           <span>Already have an account? <Link to="/Login">Log In</Link></span>
         </div>
       </form>
+      </div>
     </div>
   );
 };

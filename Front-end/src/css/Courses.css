@@ -1,58 +1,124 @@
-/* Courses.css */
+/* General container styling */
 .container {
-  padding: 2rem;
-}
+    padding: 2rem 0;
+  }
+  
+  .main-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+    background-color: #edf583cb;
+    padding: 10px;
+  }
+  
+  /* Card layout and styling */
+  .card_1 {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
 
-.main-heading {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.card {
-  border: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card-img-top {
-  width: 100%; /* Ensures the image takes the full width of the card */
-  height: 200px; /* Fixed height for consistency */
-  object-fit: cover; /* Ensures the image is cropped rather than stretched */
-}
-
-.card-body {
-  text-align: center;
-  height: 200px;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  border: none;
-}
-
-@media (max-width: 768px) {
-  .card1 {
-    margin-bottom: 1rem;
-    max-width: 900px;
     
   }
   
-  .card-body1 {
-    width: 330px;
-    max-height: 400px;
+  .card_1:hover {
+    transform: translateY(-5px);
   }
-
-  .card-img-top {
-    height: 180px; /* Slightly smaller height for mobile screens */
+  
+  .card-img-top_1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
   }
-}
+  
+  .card-body_1 {
+    padding: 1rem;
+    background-color: #edf583cb;
+    width: 100%;
+  }
+  
+  .card-title_1 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text_1 {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 992px) {
+    .card_1 {
+      padding: 0.8rem;
+    }
+    .card-img-top_1 {
+      height: 100%;
+    }
+    .card-title_1 {
+      font-size: 1rem;
+    }
+    .card-text_1 {
+      font-size: 0.85rem;
+    }
+    .btn-primary {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .col-sm-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .main-heading {
+      font-size: 1.5rem;
+    }
+    .card_1 {
+      margin: 1.5rem;
+    }
+    .card-img-top_1 {
+      height: 100%;
+    }
+    .card-title_1 {
+      font-size: 0.9rem;
+    }
+    .card-text_1 {
+      font-size: 0.8rem;
+    }
+    .btn-primary {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+  

@@ -23,6 +23,9 @@ h2 {
   font-size: 2rem;
   margin: 40px 0;
   padding-top: 20px;
+  background-color: rgb(226, 238, 158);
+  margin-bottom: 5px;
+  padding-bottom: 12px;
 }
 
 /* Buttons */
@@ -101,9 +104,8 @@ h2 {
   display: flex;
   align-items: center;
   position: relative;
-  margin-top: 20px;
-  padding-top: 10px;
-  padding-bottom: 30px;
+  
+
 }
 
 .card-slider {
@@ -112,7 +114,8 @@ h2 {
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  padding-bottom: 10px;
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
 
 .card-slider::-webkit-scrollbar {
@@ -128,10 +131,11 @@ h2 {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  padding: 1rem;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .card img {
@@ -149,7 +153,7 @@ h2 {
 
 /* Scroll Buttons */
 .scroll-btn {
-  background-color: #000000;
+  background-color: #0d517e;
   color: white;
   border: none;
   cursor: pointer;
@@ -185,6 +189,10 @@ h2 {
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.title{
+  font-weight: 800;
 }
 
 .see-all-btn:hover {
@@ -251,37 +259,6 @@ h2 {
 }
 
 /* About Us Cards */
-.card2 {
-  width: 18rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 0.75rem;
-  overflow: hidden;
-  background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card2:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-img-top2 {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-bottom: 2px solid #eee;
-}
-
-.card-body2 {
-  padding: 1rem;
-  text-align: center;
-}
-
-.card-text2 {
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.6;
-}
 
 /* Responsive Styles */
 @media (max-width: 992px) {
@@ -308,8 +285,8 @@ h2 {
   }
 
   .card {
-    min-width: 45%;
-    max-width: 200px;
+    min-width: 70%;
+   
   }
 
   .card img {
@@ -409,4 +386,35 @@ h2 {
     width: 100%;
     margin: 0.5rem;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.course-card h3 {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.course-card p {
+  font-size: 1.1rem;
 }

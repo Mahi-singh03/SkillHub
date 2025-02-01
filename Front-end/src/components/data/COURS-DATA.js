@@ -15,8 +15,8 @@ const courses = [
   { 
     courseID : 1,
     CourseImage: HTML ,
-    courseName: "HTML, CSS, JS (3 Months)",
-    description: "3 months course covering all the concepts of HTML, CSS, and JS",
+    courseName: "HTML, CSS, JS ",
+    description: "3 months Frontend course covering all the concepts of HTML, CSS, and JS",
     courseDuration: "3 Months",
     courseFee: "10000",
     courseLearnings: [
@@ -65,7 +65,7 @@ const courses = [
     courseID : 2,
     CourseImage: REACT,
     description: "6 months course covering complete frontend development with React.js",
-    courseName: "React (6 Months)",
+    courseName: "React ",
     courseDuration: "6 Months",
     courseFee: "20000",
     courseLearnings: [
@@ -126,8 +126,8 @@ const courses = [
   {
     courseID : 3,
     CourseImage: MERN,
-    courseName: "MERN FullStack ( 1 year )",
-    description: "1-year course covering both frontend and backend from basics",
+    courseName: "MERN FullStack",
+    description: "1-year course covering both frontend and backend from basics to advancce",
     courseDuration: "1 Year",
     courseFee: "50000",
     courseLearnings: [
@@ -186,7 +186,7 @@ const courses = [
   { 
     courseID : 4,
     CourseImage: Autocad,
-    courseName: "AutoCAD (3 Months)",
+    courseName: "AutoCAD ",
     courseDuration: "3 Months",
     description: "3,6,12 months course cover Design and drafting software for 2D and 3D",
     courseFee: "15000",
@@ -219,7 +219,7 @@ const courses = [
   { 
     courseID : 5,
     CourseImage: Coral,
-    courseName: "CorelDRAW (3 Months)",
+    courseName: "CorelDRAW ",
     description: " CorelDRAW Graphics Suite is all-in-one toolbox for endless creativity.",
     courseDuration: "3 Months",
     courseFee: "13000",
@@ -252,8 +252,8 @@ const courses = [
   { 
     courseID : 6,
     CourseImage: TallyLogo,
-    courseName: "Tally (3 Months)",
-    description: "Optimize your business with Tally – simplicity meets performance!",
+    courseName: "Tally",
+    description: "Optimize your business with Tally to achieve simplicity meets performance!",
     courseDuration: "3 Months",
     courseFee: "10000",
     courseLearnings: [
@@ -285,8 +285,8 @@ const courses = [
   { 
     courseID : 7,
     CourseImage: PR,
-    courseName: "Premiere Pro (6 Months)",
-    description: "Video editing software for films and video projects.",
+    courseName: "Premiere Pro ",
+    description: "Video editing software for films and video and multimedia projects.",
     courseDuration: "6 Months",
     courseFee: "20000",
     courseLearnings: [
@@ -318,7 +318,7 @@ const courses = [
   { 
     courseID : 8,
     CourseImage: WP,
-    courseName: "WordPress (3 Months)",
+    courseName: "WordPress ",
     description: "Website builder and CMS for blogs, e-commerce, and customization",
     courseDuration: "3 Months",
     courseFee: "15000",
@@ -351,7 +351,7 @@ const courses = [
   { 
     courseID : 9,
     CourseImage: YEAR,
-    courseName: "Computer Course (1 Year)",
+    courseName: "Computer Course ",
     description: "1-year course covering Office, Tally, Internet, and Computer Hardware",
     courseDuration: "1 Year",
     courseFee: "40000",
@@ -402,8 +402,8 @@ const courses = [
   { 
     couresID : 10,
     CourseImage: PS,
-    courseName: "Photoshop (3 Months)",
-    description: "Image editing software for design, retouching, and graphic creation.",
+    courseName: "Photoshop ",
+    description: "Image editing software for create design, retouching, and graphic creation.",
     courseDuration: "3 Months",
     courseFee: "12000",
     courseLearnings: [
@@ -436,7 +436,7 @@ const courses = [
     
     courseID : 11,
     CourseImage: m,
-    courseName:"Comp. Course (6 Months)",
+    courseName:"Comp. Course",
     description: "6-month course covering advanced computer skills and IT concepts",
     courseDuration: "6 Months",
     courseFee: "25000",
@@ -483,7 +483,7 @@ const courses = [
       courseID : 12,
       CourseImage: Office,
       description: " 3-month course covering computer operations and software skills",
-      courseName: "Comp. Course (3 Months)",
+      courseName: "Comp. Course ",
       courseDuration: "3 Months",
       courseFee: "10000",
       courseLearnings: [

@@ -68,7 +68,7 @@ const App = () => {
     },
     {
       image: Autocad,
-      title: "Autocad 2D and 3D",
+      title: "Autocad 2D & 3D",
       description: "Learn design and drafting in 2D and 3D CAD.",
     },
     {
