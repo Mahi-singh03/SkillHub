@@ -222,7 +222,7 @@ const App = () => {
         <div>
           <img src={out} alt="Outside view" />
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d297.2833250180151!2d76.14618661509465!3d31.21245878727104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391abff81b0f5a21%3A0xa7b8d37a0c200b2e!2sSkill%20Up%20Institute%20of%20learning!5e0!3m2!1sen!2sin!4v1738394711503!5m2!1sen!2sin"            width="600"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d297.2833250180151!2d76.14618661509465!3d31.21245878727104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391abff81b0f5a21%3A0xa7b8d37a0c200b2e!2sSkill%20Up%20Institute%20of%20learning!5e0!3m2!1sen!2sin!4v1738394711503!5m2!1sen!2sin"            width="800"
             height="450"
             style={{ border: 1 }}
             allowFullScreen=""
