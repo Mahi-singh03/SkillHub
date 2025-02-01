@@ -18,6 +18,8 @@ import PS from "../Images/CourseLOGO/PS.png";
 import out from "../Images/OUT.jpg";
 
 
+import Whatsapp from "./Whatsapp";
+
 // imprting staff images
 
 import manoj from "../Images/staff/manoj.jpg";
@@ -95,6 +97,10 @@ const App = () => {
   return (
     <div className="home-container">
       {/* Carousel Section */}
+
+      <div>
+      < Whatsapp />
+      </div>
 
       <div id="carouselExampleCaptions" className="carousel slide">
         <div className="carousel-indicators">
@@ -190,7 +196,7 @@ const App = () => {
               image={course.image}
               title={course.title}
               description={course.description}
-              link="/details"
+            
             />
           ))}
           <button className="add-to-cart-btn" >Register</button>

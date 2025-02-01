@@ -1,0 +1,56 @@
+/* Whatsapp.css */
+
+.contact-bar {
+    padding-top: 5px;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 2px solid #ddd;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 60px; /* Adjust this value based on your navbar height */
+    z-index: 999;
+    gap: 20px;
+    
+  }
+  
+  .contact-button {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    color: white;
+  }
+  
+  .call-button {
+    background-color: #007bff;
+    width: 40%;
+  }
+  
+  .whatsapp-button {
+    background-color: #25d366;
+    width: 40%;
+  }
+  
+  .contact-button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 480px) {
+    .contact-bar {
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+    }
+  
+    .contact-button {
+      width: 90%;
+      text-align: center;
+    }
+  }
+  
