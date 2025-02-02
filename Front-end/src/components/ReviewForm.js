@@ -24,7 +24,7 @@ const ReviewSystem = () => {
 
   return (
     <div className="review-system">
-      <h2>Leave a Review</h2>
+    
       <form onSubmit={handleSubmit} className="review-form">
         <div className="form-group">
           <label htmlFor="name">Name:</label>
