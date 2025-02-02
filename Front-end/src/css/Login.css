@@ -1,7 +1,20 @@
-* {
-  box-sizing: border-box;
-}
 
+
+.login-form-container {
+  background-image: url('../Images/background-copy.jpg'); /* Update with your image path */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents image repetition */
+  min-height: 100vh; /* Ensures the full viewport height is covered */
+  display: flex;
+  
+
+ 
+
+}
+.Head{
+  background: hsl(240, 12%, 90%);
+}
 body {
   font-family: "Arial", sans-serif;
   background: #f0f0f0;
@@ -9,20 +22,21 @@ body {
   font-size: 16px;
 }
 
-form {
+.L {
   background: hsl(240, 12%, 90%);
   width: 360px;
   margin: 40px auto;
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  height: 450px;
 }
 
 form h1 {
   font-size: 20px;
   text-align: center;
   margin-bottom: 15px;
-  background-color: #edf583cb;
+ 
   padding: 10px;
 }
 
@@ -101,4 +115,8 @@ form p a {
 
 form p a:hover {
   text-decoration: underline;
+}
+.inset{
+  padding-top: 0;
+  margin-top: 0;
 }

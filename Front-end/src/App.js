@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
-import Footer from './components/Footer';
 import PrivateComponent from './components/privateRotes'; // Handles route protection
 import Login from './components/LogIn';
 import DetailBar from './components/Detail-Bar';
-import Contact from './components/contact';
 import Home from './components/Home';
 import Courses from './components/Courses';
 import Registration from './components/Registration';
@@ -53,8 +51,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-      <Contact />
-      <Footer />
+      
     </div>
   );
 }

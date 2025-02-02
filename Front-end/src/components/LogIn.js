@@ -59,8 +59,8 @@ const Login = () => {
 
   return (
     <div className="login-form-container">
-      <form onSubmit={handleLogin}>
-        <h1>Log In</h1>
+      <form className="L"onSubmit={handleLogin}>
+        <h1 className='Head'>Log In</h1>
         <div className="inset">
           <p>
             <label htmlFor="phoneNumber">PHONE NUMBER</label>

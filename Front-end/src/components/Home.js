@@ -220,15 +220,20 @@ const App = () => {
         <p>Chandigarh Chownk, Garhshankar, Hoshiarpur, Punajab</p>
 
         <div>
-          <img src={out} alt="Outside view" />
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d297.2833250180151!2d76.14618661509465!3d31.21245878727104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391abff81b0f5a21%3A0xa7b8d37a0c200b2e!2sSkill%20Up%20Institute%20of%20learning!5e0!3m2!1sen!2sin!4v1738394711503!5m2!1sen!2sin"            width="800"
-            height="450"
-            style={{ border: 1 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+        <img src={out} alt="Outside view" className="zoom-effect" />
+          <div>
+ 
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d297.2833250180151!2d76.14618661509465!3d31.21245878727104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391abff81b0f5a21%3A0xa7b8d37a0c200b2e!2sSkill%20Up%20Institute%20of%20learning!5e0!3m2!1sen!2sin!4v1738394711503!5m2!1sen!2sin"
+      width="600"
+      height="450"
+      style={{ border: 1 }}
+      allowFullScreen=""
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      className="zoom-effect"
+    ></iframe>
+  </div>
         </div>
       </div>
 
@@ -238,7 +243,7 @@ const App = () => {
 
       <div className="card-container1">
         <div className="card1" style={{ width: '18rem' }}>
-          <img src={manoj} className="card-img-top1" alt="manoj" />
+          <img src={manoj} className="card-img-top1" alt="Mahi Singh" />
           <div className="card-body1">
             <p className="Name1">Manoj Barhpagga</p>
             <p className="Designation1">Website designer</p>
@@ -247,7 +252,7 @@ const App = () => {
 
 
         <div className="card1" style={{ width: '18rem' }}>
-          <img src={NMAM} className="card-img-top1" alt="manoj" />
+          <img src={NMAM} className="card-img-top1" alt="Neha" />
           <div className="card-body1">
             <p className="Name1">Neha</p>
             <p className="Designation1">Computer Teacher</p>
@@ -255,7 +260,7 @@ const App = () => {
         </div>
 
         <div className="card1" style={{ width: '18rem' }}>
-          <img src={PMAM} className="card-img-top1" alt="manoj" />
+          <img src={PMAM} className="card-img-top1" alt="Partiksha" />
           <div className="card-body1">
             <p className="Name1"> Parteeksha</p>
             <p className="Designation1">PTE Teacher </p>
@@ -264,7 +269,7 @@ const App = () => {
 
 
         <div className="card1" style={{ width: '18rem' }}>
-          <img src={Aditya} className="card-img-top1" alt="manoj" />
+          <img src={Aditya} className="card-img-top1" alt="Aditya" />
           <div className="card-body1">
             <p className="Name1"> Aditya Sharma</p>
             <p className="Designation1"> Social Media Manager</p>

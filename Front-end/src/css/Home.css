@@ -91,10 +91,11 @@ h2 {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   filter: invert(100%);
+
 }
 
 .carousel-caption {
-  background: rgba(116, 110, 153, 0.692);
+  background: rgba(31, 113, 207, 0.692);
   padding: 10px;
   border-radius: 5px;
 }
@@ -199,9 +200,9 @@ h2 {
   background-color: #218838;
 }
 /* Map Section */
-
-.location{
+.location {
   max-width: 50px;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .map-container {
@@ -212,6 +213,7 @@ h2 {
   margin: 20px auto;
   max-width: 1200px;
   padding: 20px;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .map-container p {
@@ -220,6 +222,7 @@ h2 {
   font-weight: bold;
   color: #333;
   margin-bottom: 20px;
+  animation: slideIn 1.5s ease-out;
 }
 
 .map-container div {
@@ -235,8 +238,33 @@ h2 {
   object-fit: cover;
   border: 1px solid #ddd;
   border-radius: 8px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
+.zoom-effect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 /* About Us Section */
 .about-us {
   padding: 2rem;
@@ -319,7 +347,7 @@ h2 {
   .map-container iframe,
   .map-container img {
     width: 100%;
-    height: 400px;
+    height: 700px;
   }
 }
 
@@ -336,49 +364,80 @@ h2 {
     font-size: 0.9rem;
   }
 }
+/* Container for the cards */
 .card-container1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  animation: fadeIn 1s ease-in-out;
 }
 
+/* Card styling */
 .card1 {
- 
-  height : 25rem; ;
-  margin: .9rem;
+  height: 25rem;
+  margin: 0.9rem;
   background-color: rgb(243, 248, 171);
   border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Hover effect */
+.card1:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
 .card-img-top1 {
   margin: 10px;
   width: 90%;
   height: auto;
   border-radius: 20px;
   border: 1px solid rgb(0, 0, 0);
+  transition: transform 0.3s ease;
 }
 
+/* Slight zoom on image hover */
+.card1:hover .card-img-top1 {
+  transform: scale(1.1);
+}
+
+/* Text alignment */
 .card-body1 {
   text-align: left;
 }
 
+/* Name styling */
 .Name1 {
   padding-top: 10px;
   font-size: 1.3rem;
-  font-weight: 700; 
+  font-weight: 700;
   color: rgb(0, 0, 0);
-  padding-bottom:-10px ;
   padding-left: 20px;
 }
 
+/* Designation styling */
 .Designation1 {
   font-size: 1.2rem;
   color: rgb(59, 58, 58);
   font-weight: 500;
-  padding-top: 0;
   padding-left: 20px;
 }
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* Responsive design */
 @media (max-width: 768px) {
