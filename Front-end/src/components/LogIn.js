@@ -60,7 +60,7 @@ const Login = () => {
   return (
     <div className="login-form-container">
       <form className="L"onSubmit={handleLogin}>
-        <h1 className='Head'>Log In</h1>
+        <h1 className='Head'> Student login</h1>
         <div className="inset">
           <p>
             <label htmlFor="phoneNumber">PHONE NUMBER</label>

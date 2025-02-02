@@ -29,7 +29,7 @@ import PMAM from "../Images/staff/PMAM.jpg";
 
 
 
-import ReviewForm from "./ReviewForm";
+import ReviewSystem from "./ReviewForm"
 
 const CourseCard = ({ image, title, description, link }) => (
   <div className="card" style={{ width: "18rem" }}>
@@ -280,6 +280,8 @@ const App = () => {
 
       {/* < ReviewForm /> */}
       <h2> Review us</h2>
+
+      <ReviewSystem />
     </div>
   );
 };

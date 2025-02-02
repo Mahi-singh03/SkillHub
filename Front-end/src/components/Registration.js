@@ -81,7 +81,7 @@ const Registration = () => {
     }
   };
 
-  const courses = ['Course 1', 'Course 2', 'Course 3'];
+  const courses = ['HTML, CSS, JS', 'React', 'ERN FullStack','Autocad','CorelDRAW','Tally','Premier Pro', 'Wordpress','Computer Course',' MS Office','PTE'];
   const qualifications = ['10th', '12th', 'Graduated'];
 
   return (
