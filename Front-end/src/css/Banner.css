@@ -1,0 +1,110 @@
+.banner {
+    position: relative;
+    width: 98%;
+    height: 1200px; /* Fixed height instead of min-height */
+    background-image: url('../Images/Banner.jpeg');
+    background-size: contain; /* Changed from 'cover' to 'contain' */
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 30px;
+    margin: 20px;
+    margin-top: 60px;
+    box-sizing: border-box;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-content {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.banner h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner p {
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .banner {
+        height: 800px; /* Keep consistent height */
+        background-size: contain; /* Changed from cover to contain */
+    }
+}
+
+/* Medium screens */
+@media (max-width: 992px) {
+    .banner {
+        height: 600px; /* Slightly smaller but fixed height */
+    }
+    
+    .banner-content {
+        min-height: auto;
+        padding: 40px 20px;
+    }
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+    .banner {
+        height: 400px; /* Smaller fixed height */
+        padding: 15px;
+    }
+    
+    .banner-content {
+        padding: 30px 15px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .banner {
+        height: 300px; /* Smallest fixed height */
+        padding: 10px;
+    }
+    
+    .banner-content {
+        padding: 20px 10px;
+    }
+}
+
+/* Landscape mode */
+@media (orientation: landscape) and (max-height: 500px) {
+    .banner {
+        height: 300px; /* Fixed height for landscape */
+    }
+    
+    .banner-content {
+        min-height: auto;
+        padding: 20px;
+    }
+    
+    .banner h1 {
+        margin-bottom: 0.5rem;
+    }
+}

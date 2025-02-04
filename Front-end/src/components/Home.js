@@ -17,14 +17,17 @@ import PS from "../Images/CourseLOGO/PS.png";
 
 import out from "../Images/OUT.jpg";
 
+import Banner from "./Banner";
 
 import Whatsapp from "./Whatsapp";
+
 
 // imprting staff images
 
 import manoj from "../Images/staff/manoj.jpg";
 import NMAM from "../Images/staff/NMAM.jpg";
 import Aditya from "../Images/staff/Aditya.jpg";
+
 import PMAM from "../Images/staff/PMAM.jpg";
 
 
@@ -211,6 +214,8 @@ const App = () => {
           See All Courses
         </Link>
       </div>
+
+    <Banner/>
 
       {/* Map Section */}
       <h2>Visit Us</h2>
