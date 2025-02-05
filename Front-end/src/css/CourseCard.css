@@ -122,11 +122,16 @@ body {
   margin-top: 30px;
 }
 
+.yellow {
+  background-color: #ffffff;
+}
 .course-learn h2 {
   font-size: 1.8rem;
   font-weight: bold;
   color: #343a40;
   margin-bottom: 15px;
+
+  background-color: #ffffff;
 }
 
 .course-learn ul {
@@ -142,12 +147,13 @@ body {
 }
 
 .course-learn li:hover {
-  color: #007bff;
+  background: #ffffff;
 }
 
 /* Accordion Section */
 .accordion-section {
   margin-top: 30px;
+  background: #ffffff;
 }
 
 .accordion {
@@ -164,7 +170,7 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   color: #495057;
-  background: #f8f9fa;
+  background: #ffffff;
   border: none;
   padding: 14px 20px;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -180,7 +186,7 @@ body {
 
 .accordion-body {
   font-size: 1rem;
-  color: #6c757d;
+  background: #ffffff;
   padding: 15px 20px;
   background: #ffffff;
 }

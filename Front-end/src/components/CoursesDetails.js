@@ -52,15 +52,16 @@ function CourseDetails() {
             ))}
           </ul>
         </div>
-        <h2>Syllabus</h2>
+        <h2 className="yellow">Syllabus</h2>
 
-        <div className="accordion-section">
-          <div className="accordion accordion-flush" id="accordionCourse">
+
+        <div className="accordion-section yellow">
+          <div className="accordion yellow accordion-flush" id="accordionCourse">
             {course.courseSyllabus.map((module, index) => {
               const moduleID = `module-${index}`;
               return (
                 <div className="accordion-item" key={index}>
-                  <h2 className="accordion-header">
+                  <h2 className="accordion-header yellow">
                     <button
                       className="accordion-button collapsed"
                       type="button"

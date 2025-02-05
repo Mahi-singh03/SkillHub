@@ -5,6 +5,7 @@
     text-align: center;
     justify-content: center;
     padding-top: 50px;
+    padding-bottom: 20px;
   }
   
   .social-media a {
@@ -16,7 +17,7 @@
   }
   
   .social-media a:hover {
-    color: #155308;
+    color: #11ffff;
   }
 
 

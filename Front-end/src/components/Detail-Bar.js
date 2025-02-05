@@ -12,15 +12,7 @@ const DetailBar = () => {
   return (
     <div className="detail-bar">
       <p className="greeting">Hello, {userName}</p>
-      <div className="whatsapp">
-        <a
-          href={`https://wa.me/9781278770`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Chat with us on WhatsApp
-        </a>
-      </div>
+     
     </div>
   );
 };

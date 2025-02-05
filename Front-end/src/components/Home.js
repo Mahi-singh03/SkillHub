@@ -18,6 +18,9 @@ import PS from "../Images/CourseLOGO/PS.png";
 import out from "../Images/OUT.jpg";
 
 import Banner from "./Banner";
+import Contact from "./contact.js";
+
+import Footer from "./Footer";
 
 import Whatsapp from "./Whatsapp";
 
@@ -277,8 +280,11 @@ const App = () => {
 
       {/* < ReviewForm /> */}
       <h2> Review us</h2>
-
+      
       <ReviewSystem />
+      <Contact />
+
+      <Footer />
     </div>
   );
 };
