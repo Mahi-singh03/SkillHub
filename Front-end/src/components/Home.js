@@ -21,7 +21,6 @@ import Banner from "./Banner";
 
 import Whatsapp from "./Whatsapp";
 
-
 // imprting staff images
 
 import manoj from "../Images/staff/manoj.jpg";
@@ -30,9 +29,7 @@ import Aditya from "../Images/staff/Aditya.jpg";
 
 import PMAM from "../Images/staff/PMAM.jpg";
 
-
-
-import ReviewSystem from "./ReviewForm"
+import ReviewSystem from "./ReviewForm";
 
 const CourseCard = ({ image, title, description, link }) => (
   <div className="card" style={{ width: "18rem" }}>
@@ -102,7 +99,7 @@ const App = () => {
       {/* Carousel Section */}
 
       <div>
-      < Whatsapp />
+        <Whatsapp />
       </div>
 
       <div id="carouselExampleCaptions" className="carousel slide">
@@ -199,12 +196,11 @@ const App = () => {
               image={course.image}
               title={course.title}
               description={course.description}
-            
             />
           ))}
-          <button className="add-to-cart-btn" >Register</button>
+          <button className="add-to-cart-btn">Register</button>
         </div>
-        
+
         <button className="scroll-btn right" onClick={scrollRight}>
           &gt;
         </button>
@@ -215,7 +211,7 @@ const App = () => {
         </Link>
       </div>
 
-    <Banner/>
+      {/* <Banner/> */}
 
       {/* Map Section */}
       <h2>Visit Us</h2>
@@ -225,20 +221,19 @@ const App = () => {
         <p>Chandigarh Chownk, Garhshankar, Hoshiarpur, Punajab</p>
 
         <div>
-        <img src={out} alt="Outside view" className="zoom-effect" />
+          <img src={out} alt="Outside view" className="zoom-effect" />
           <div>
- 
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d297.2833250180151!2d76.14618661509465!3d31.21245878727104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391abff81b0f5a21%3A0xa7b8d37a0c200b2e!2sSkill%20Up%20Institute%20of%20learning!5e0!3m2!1sen!2sin!4v1738394711503!5m2!1sen!2sin"
-      width="600"
-      height="450"
-      style={{ border: 1 }}
-      allowFullScreen=""
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      className="zoom-effect"
-    ></iframe>
-  </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d297.2833250180151!2d76.14618661509465!3d31.21245878727104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391abff81b0f5a21%3A0xa7b8d37a0c200b2e!2sSkill%20Up%20Institute%20of%20learning!5e0!3m2!1sen!2sin!4v1738394711503!5m2!1sen!2sin"
+              width="600"
+              height="450"
+              style={{ border: 1 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="zoom-effect"
+            ></iframe>
+          </div>
         </div>
       </div>
 
@@ -247,7 +242,7 @@ const App = () => {
       <h2>Our Staff</h2>
 
       <div className="card-container1">
-        <div className="card1" style={{ width: '18rem' }}>
+        <div className="card1" style={{ width: "18rem" }}>
           <img src={manoj} className="card-img-top1" alt="Mahi Singh" />
           <div className="card-body1">
             <p className="Name1">Manoj Barhpagga</p>
@@ -255,8 +250,7 @@ const App = () => {
           </div>
         </div>
 
-
-        <div className="card1" style={{ width: '18rem' }}>
+        <div className="card1" style={{ width: "18rem" }}>
           <img src={NMAM} className="card-img-top1" alt="Neha" />
           <div className="card-body1">
             <p className="Name1">Neha</p>
@@ -264,7 +258,7 @@ const App = () => {
           </div>
         </div>
 
-        <div className="card1" style={{ width: '18rem' }}>
+        <div className="card1" style={{ width: "18rem" }}>
           <img src={PMAM} className="card-img-top1" alt="Partiksha" />
           <div className="card-body1">
             <p className="Name1"> Parteeksha</p>
@@ -272,15 +266,13 @@ const App = () => {
           </div>
         </div>
 
-
-        <div className="card1" style={{ width: '18rem' }}>
+        <div className="card1" style={{ width: "18rem" }}>
           <img src={Aditya} className="card-img-top1" alt="Aditya" />
           <div className="card-body1">
             <p className="Name1"> Aditya Sharma</p>
             <p className="Designation1"> Social Media Manager</p>
           </div>
         </div>
-
       </div>
 
       {/* < ReviewForm /> */}

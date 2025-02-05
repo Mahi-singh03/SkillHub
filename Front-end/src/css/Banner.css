@@ -1,16 +1,14 @@
 .banner {
     position: relative;
-    width: 98%;
+    width: 100%;
     height: 1200px; /* Fixed height instead of min-height */
     background-image: url('../Images/Banner.jpeg');
     background-size: contain; /* Changed from 'cover' to 'contain' */
     background-position: center;
     background-repeat: no-repeat;
-    padding: 20px;
-    border-radius: 30px;
-    margin: 20px;
+    
     margin-top: 60px;
-    box-sizing: border-box;
+    
 }
 
 .banner::before {
@@ -52,8 +50,9 @@
 /* Large screens */
 @media (min-width: 1200px) {
     .banner {
-        height: 800px; /* Keep consistent height */
+        height: 1200px; /* Keep consistent height */
         background-size: contain; /* Changed from cover to contain */
+        border-radius: 20px;
     }
 }
 
@@ -65,7 +64,8 @@
     
     .banner-content {
         min-height: auto;
-        padding: 40px 20px;
+       
+
     }
 }
 
