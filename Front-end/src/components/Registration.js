@@ -89,7 +89,7 @@ const Registration = () => {
       <div className='registration-container'>
       
       <form onSubmit={handleRegistration} className="registration-form responsive">
-        <h3 className='heading'>Regiter</h3>
+        <h3 className='heading'>Stdents Registration</h3>
 
         {/* Full Name Field */}
         <div className="form-group">
