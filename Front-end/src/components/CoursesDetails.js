@@ -17,8 +17,8 @@ function CourseDetails() {
   };
 
   return (
-    <div>
-      <h1 className="text-center main-heading">Course Details</h1>
+    <div className="Course-Details">
+      
       <div className="course-card">
         <div className="course-header">
           <div className="course-title">
