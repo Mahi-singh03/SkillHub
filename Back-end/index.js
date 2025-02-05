@@ -3,7 +3,10 @@ import cors from 'cors';
 import authRoutes from './Components/authRoutes.js';
 import path from 'path';
 import connect from './Components/connection.js';
+import dotenv from 'dotenv';
 
+// Load environment variables
+dotenv.config();
 
 // Fix for `__dirname` in ES modules
 const __dirname = path.resolve();
@@ -17,8 +20,6 @@ const app = express();
 // Middleware
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || '*' })); // Handle CORS
 app.use(express.json()); // Parse JSON request bodies
-app.use(cors());
-app.use(express.json());
 
 
 app.use('/', authRoutes);
@@ -39,22 +40,12 @@ app.use('/', authRoutes);
 
 
 
-// Routes
-app.use('/', authRoutes);
-
-
-
-
-
-
-
-
-// Error handling middleware
+// Error handling middleware (single instance)
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({
+  console.error('❌ Unhandled error:', err);
+  res.status(500).json({ 
     status: 'error',
-    message: 'Something went wrong!'
+    message: err.message || 'Internal Server Error'
   });
 });
 
@@ -68,12 +59,6 @@ app.use(express.static(path.join(__dirname, '/Front-end/build')));
 // Handles any requests that don't match the ones above
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'Front-end', 'build', 'index.html'));
-});
-
-// Global error handler
-app.use((err, req, res, next) => {
-  console.error('❌ Unhandled error:', err);
-  res.status(500).json({ error: 'Internal Server Error', details: err.message });
 });
 
 // Start the Server

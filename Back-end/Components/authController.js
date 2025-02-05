@@ -4,50 +4,43 @@ export const register = async (req, res) => {
   try {
     const { emailAddress, password, ...rest } = req.body;
 
-    // Check for existing user
+    // Check if email already exists
     const existingUser = await User.findOne({ emailAddress });
     if (existingUser) {
-      return res.status(409).json({
-        error: 'Email already registered'
-      });
+      return res.status(409).json({ error: 'Email already registered' });
     }
 
-    // Create new user
-    const newUser = await User.create({
+    // Create a new user
+    const newUser = new User({
       emailAddress: emailAddress.toLowerCase(),
       password,
       ...rest
     });
 
-    // Generate JWT token
-    const token = newUser.generateAuthToken();
+    // Save user to DB
+    await newUser.save();
 
     // Send response
-    res.status(201).json({
-      user: newUser,
-      token
+    return res.status(201).json({
+      user: newUser.toJSON(),
+      message: 'Registration successful'
     });
 
   } catch (error) {
-    // Handle validation errors
+    console.error('Registration error:', error);
+
+    // Handle Mongoose validation errors
     if (error.name === 'ValidationError') {
-      const messages = Object.values(error.errors).map(val => val.message);
-      return res.status(400).json({
-        error: messages.join('. ')
-      });
-    }
-    
-    // Handle duplicate key errors
-    if (error.code === 11000) {
-      return res.status(409).json({
-        error: 'Email already registered'
-      });
+      const messages = Object.values(error.errors).map((val) => val.message);
+      return res.status(400).json({ error: messages.join('. ') });
     }
 
-    // Generic error handler
-    console.error('Registration error:', error);
-    res.status(500).json({
-      error: 'Internal server error'
-    });
+    // Handle duplicate email errors (MongoDB error code 11000)
+    if (error.code === 11000) {
+      return res.status(409).json({ error: 'Email already registered' });
+    }
+
+    // Generic error response
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 };

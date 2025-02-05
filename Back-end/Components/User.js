@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 
 const userSchema = new mongoose.Schema({
   fullName: {
@@ -54,15 +53,6 @@ userSchema.pre('save', async function(next) {
   this.password = await bcrypt.hash(this.password, 12);
   next();
 });
-
-// Generate JWT Token
-userSchema.methods.generateAuthToken = function() {
-  return jwt.sign(
-    { id: this._id, email: this.emailAddress },
-    process.env.JWT_SECRET,
-    { expiresIn: '1d' }
-  );
-};
 
 // Remove sensitive fields from response
 userSchema.methods.toJSON = function() {
