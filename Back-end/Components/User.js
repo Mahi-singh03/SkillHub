@@ -73,6 +73,7 @@ userSchema.pre('save', async function(next) {
 
   let newRollNo;
   if (lastUser && lastUser.rollNo.startsWith(currentYear.toString())) {
+    // Bug: Converting rollNo directly to integer could lose leading zeros
     newRollNo = parseInt(lastUser.rollNo) + 1;
   } else {
     newRollNo = `${currentYear}001`; // Start fresh if no roll numbers exist

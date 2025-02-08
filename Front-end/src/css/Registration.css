@@ -12,6 +12,7 @@
 
 .heading{
   font-weight: 700;
+  padding-bottom: 20px;
 }
 
 
@@ -78,10 +79,11 @@ input[type="password"], input[type="text"] {
   border: none;
   font-size: 1rem;
   cursor: pointer;
-  margin-left: -2rem;
+  margin-left: -1.rem;
   position: absolute;
   right: 0.5rem;
   color: #3498db;
+  padding-right: 10px;
 }
 
 .toggle-password:focus {

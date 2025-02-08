@@ -3,6 +3,6 @@ import { register } from './authController.js';
 
 const router = express.Router();
 
-router.post('/RegistrationForm', register);
+router.post('/Registrationform', register);
 
 export default router;
