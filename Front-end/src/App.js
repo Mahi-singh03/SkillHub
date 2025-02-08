@@ -47,7 +47,7 @@ function App() {
           {/* Protected routes */}
           <Route element={<PrivateComponent isLoggedIn={isLoggedIn} />}>
             <Route path="/Profile" element={<h1>Profile</h1>} />
-            <Route path="/Logout" element={<h1>Logout</h1>} />
+            <Route path="/Logout" element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>

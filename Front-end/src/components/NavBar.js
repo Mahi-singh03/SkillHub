@@ -132,7 +132,7 @@ const NavBar = () => {
             </Link>
           ) : (
             <Link
-              className={`nav-link ${location.pathname === '/Login' ? 'active' : ''}`}
+              className={`nav-link ${location.pathname === '/Home' ? 'active' : ''}`}
               to="/Login"
               onClick={closeMenu}
             >
