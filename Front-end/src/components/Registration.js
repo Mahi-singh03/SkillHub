@@ -8,6 +8,7 @@ const Registration = () => {
     fatherName: '',
     emailAddress: '',
     phoneNumber: '',
+    dateOfBirth: '',  
     selectedCourse: '',
     address: '',
     qualification: '',
@@ -30,11 +31,12 @@ const Registration = () => {
   };
 
   const validateForm = () => {
-    const { fullName, fatherName, emailAddress, phoneNumber, selectedCourse, address, qualification, password } = formData;
+    const { fullName, fatherName, emailAddress, phoneNumber, dateOfBirth, selectedCourse, address, qualification, password } = formData;
     if (!fullName.trim()) return 'Full name is required.';
     if (!fatherName.trim()) return 'Father\'s name is required.';
     if (!/\S+@\S+\.\S+/.test(emailAddress)) return 'Please enter a valid email address.';
     if (!phoneNumber.trim()) return 'Phone number is required.';
+    if (!dateOfBirth.trim()) return 'Date of Birth is required.'; // New validation
     if (!selectedCourse.trim()) return 'Please select a course.';
     if (!address.trim()) return 'Address is required.';
     if (!qualification.trim()) return 'Please select a qualification.';
@@ -66,112 +68,116 @@ const Registration = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // If registration is successful, store user data and registration status in localStorage
         localStorage.setItem('user', JSON.stringify(data));
-        localStorage.setItem('isRegistered', 'true'); // Store registration status
+        localStorage.setItem('isRegistered', 'true');
         window.dispatchEvent(new Event('storage'));
-        navigate('/', { replace: true });  // Redirect to home page after successful registration
+        navigate('/', { replace: true });
       } else {
         setError(data.message || 'Failed to register. Please try again.');
       }
     } catch (error) {
       setError('An error occurred. Please try again.');
     } finally {
-      setLoading(false);  // Set loading to false once the request is completed
+      setLoading(false);
     }
   };
 
-  const courses = ['HTML, CSS, JS', 'React', 'ERN FullStack','Autocad','CorelDRAW','Tally','Premier Pro', 'Wordpress','Computer Course',' MS Office','PTE'];
+  const courses = ['HTML, CSS, JS', 'React', 'ERN FullStack', 'Autocad', 'CorelDRAW', 'Tally', 'Premier Pro', 'Wordpress', 'Computer Course', 'MS Office', 'PTE'];
   const qualifications = ['10th', '12th', 'Graduated'];
 
   return (
-    <div >   
+    <div>   
       <div className='registration-container'>
-      
-      <form onSubmit={handleRegistration} className="registration-form responsive">
-        <h3 className='heading'>Stdents Registration</h3>
+        <form onSubmit={handleRegistration} className="registration-form responsive">
+          <h3 className='heading'>Students Registration</h3>
 
-        {/* Full Name Field */}
-        <div className="form-group">
-          <label htmlFor="fullName">Full Name</label>
-          <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} id="fullName" required />
-        </div>
-
-        {/* Father's Name Field */}
-        <div className="form-group">
-          <label htmlFor="fatherName">Father's Name</label>
-          <input type="text" name="fatherName" value={formData.fatherName} onChange={handleInputChange} id="fatherName" required />
-        </div>
-
-        {/* Email Address Field */}
-        <div className="form-group">
-          <label htmlFor="emailAddress">Email Address</label>
-          <input type="email" name="emailAddress" value={formData.emailAddress} onChange={handleInputChange} id="emailAddress" required />
-        </div>
-
-        {/* Phone Number Field */}
-        <div className="form-group">
-          <label htmlFor="phoneNumber">Phone Number</label>
-          <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} id="phoneNumber" required />
-        </div>
-
-        {/* Course Selection Field */}
-        <div className="form-group">
-          <label htmlFor="selectedCourse">Course</label>
-          <select name="selectedCourse" value={formData.selectedCourse} onChange={handleInputChange} id="selectedCourse" required>
-            <option value="">Select a course</option>
-            {courses.map((course) => (
-              <option key={course} value={course}>{course}</option>
-            ))}
-          </select>
-        </div>
-
-        {/* Address Field */}
-        <div className="form-group">
-          <label htmlFor="address">Address</label>
-          <input type="text" name="address" value={formData.address} onChange={handleInputChange} id="address" required />
-        </div>
-
-        {/* Qualification Field */}
-        <div className="form-group">
-          <label htmlFor="qualification">Qualification</label>
-          <select name="qualification" value={formData.qualification} onChange={handleInputChange} id="qualification" required>
-            <option value="">Select a qualification</option>
-            {qualifications.map((qual) => (
-              <option key={qual} value={qual}>{qual}</option>
-            ))}
-          </select>
-        </div>
-
-        {/* Password Field */}
-        <div className="form-group password-group">
-          <label htmlFor="password">Password</label>
-          <div className="password-wrapper">
-            <input type={showPassword ? 'text' : 'password'} name="password" value={formData.password} onChange={handleInputChange} id="password" required />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
-              className="toggle-password1"
-            >
-              {showPassword ? <span>&#x1F441;</span> : <span>&#x1F576;</span>}
-            </button>
+          {/* Full Name Field */}
+          <div className="form-group">
+            <label htmlFor="fullName">Full Name</label>
+            <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} id="fullName" required />
           </div>
-        </div>
 
-        {/* Display error message if any */}
-        {error && <div className="error-message">{error}</div>}
+          {/* Father's Name Field */}
+          <div className="form-group">
+            <label htmlFor="fatherName">Father's Name</label>
+            <input type="text" name="fatherName" value={formData.fatherName} onChange={handleInputChange} id="fatherName" required />
+          </div>
 
-        {/* Submit Button */}
-        <div className="form-actions">
-          <button type="submit" disabled={loading}>{loading ? 'Registering...' : 'Register'}</button>
-        </div>
+          {/* Email Address Field */}
+          <div className="form-group">
+            <label htmlFor="emailAddress">Email Address</label>
+            <input type="email" name="emailAddress" value={formData.emailAddress} onChange={handleInputChange} id="emailAddress" required />
+          </div>
 
-        {/* Login Redirect */}
-        <div className="login-redirect">
-          <span>Already have an account? <Link to="/Login">Log In</Link></span>
-        </div>
-      </form>
+          {/* Phone Number Field */}
+          <div className="form-group">
+            <label htmlFor="phoneNumber">Phone Number</label>
+            <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} id="phoneNumber" required />
+          </div>
+
+          {/* Date of Birth Field (NEW) */}
+          <div className="form-group">
+            <label htmlFor="dateOfBirth">Date of Birth</label>
+            <input type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleInputChange} id="dateOfBirth" required />
+          </div>
+
+          {/* Course Selection Field */}
+          <div className="form-group">
+            <label htmlFor="selectedCourse">Course</label>
+            <select name="selectedCourse" value={formData.selectedCourse} onChange={handleInputChange} id="selectedCourse" required>
+              <option value="">Select a course</option>
+              {courses.map((course) => (
+                <option key={course} value={course}>{course}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Address Field */}
+          <div className="form-group">
+            <label htmlFor="address">Address</label>
+            <input type="text" name="address" value={formData.address} onChange={handleInputChange} id="address" required />
+          </div>
+
+          {/* Qualification Field */}
+          <div className="form-group">
+            <label htmlFor="qualification">Qualification</label>
+            <select name="qualification" value={formData.qualification} onChange={handleInputChange} id="qualification" required>
+              <option value="">Select a qualification</option>
+              {qualifications.map((qual) => (
+                <option key={qual} value={qual}>{qual}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Password Field */}
+          <div className="form-group password-group">
+            <label htmlFor="password">Password</label>
+            <div className="password-wrapper">
+              <input type={showPassword ? 'text' : 'password'} name="password" value={formData.password} onChange={handleInputChange} id="password" required />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                className="toggle-password1"
+              >
+                {showPassword ? <span>&#x1F441;</span> : <span>&#x1F576;</span>}
+              </button>
+            </div>
+          </div>
+
+          {/* Display error message if any */}
+          {error && <div className="error-message">{error}</div>}
+
+          {/* Submit Button */}
+          <div className="form-actions">
+            <button type="submit" disabled={loading}>{loading ? 'Registering...' : 'Register'}</button>
+          </div>
+
+          {/* Login Redirect */}
+          <div className="login-redirect">
+            <span>Already have an account? <Link to="/Login">Log In</Link></span>
+          </div>
+        </form>
       </div>
     </div>
   );

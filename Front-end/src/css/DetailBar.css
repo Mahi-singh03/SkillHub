@@ -9,31 +9,17 @@
 
 .greeting {
 
-  font-size: 18px;
+  font-size: 26px;
   font-weight: 600;
-  color: #000000;
-  font-style: italic;
+  color: #3a92f8;
+  padding-left: 20px;
   margin: 0; /* Reset margin to avoid pushing content */
 }
 
-.whatsapp {
-  display: flex; /* Ensures the icon and text are aligned */
-  align-items: center;
+@media (min-width: 768px) {
+  .greeting{
+    padding-left: 4%;
+  }
 }
 
-.whatsapp a {
-  color: #25d366;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
 
-.whatsapp a::before {
-  margin-right: 8px;
-}
-
-.whatsapp a:hover {
-  color: #128c7e;
-}

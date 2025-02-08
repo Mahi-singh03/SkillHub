@@ -1,9 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-
-
-
 const userSchema = new mongoose.Schema({
   fullName: {
     type: String,
@@ -14,6 +11,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Father's name is required"],
     trim: true
+  },
+  rollNo: {
+    type: String,
+    unique: true
   },
   emailAddress: {
     type: String,
@@ -28,10 +29,14 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Phone number is required'],
     trim: true
   },
+  dateOfBirth: {
+    type: Date,
+    required: [true, 'Date of Birth is required']
+  },
   selectedCourse: {
     type: String,
     required: [true, 'Course selection is required'],
-    enum: ['HTML, CSS, JS', 'React', 'ERN FullStack','Autocad','CorelDRAW','Tally','Premier Pro', 'Wordpress','Computer Course',' MS Office','PTE']
+    enum: ['HTML, CSS, JS', 'React', 'ERN FullStack', 'Autocad', 'CorelDRAW', 'Tally', 'Premier Pro', 'Wordpress', 'Computer Course', 'MS Office', 'PTE']
   },
   address: {
     type: String,
@@ -57,6 +62,26 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
+// Auto-generate Roll Number before saving
+userSchema.pre('save', async function(next) {
+  if (this.rollNo) return next(); // Skip if rollNo already exists
+
+  const currentYear = new Date().getFullYear();
+  
+  // Find the last student to get the last roll number
+  const lastUser = await mongoose.model('User').findOne().sort({ rollNo: -1 });
+
+  let newRollNo;
+  if (lastUser && lastUser.rollNo.startsWith(currentYear.toString())) {
+    newRollNo = parseInt(lastUser.rollNo) + 1;
+  } else {
+    newRollNo = `${currentYear}001`; // Start fresh if no roll numbers exist
+  }
+
+  this.rollNo = newRollNo;
+  next();
+});
+
 // Remove sensitive fields from response
 userSchema.methods.toJSON = function() {
   const user = this.toObject();
@@ -67,5 +92,4 @@ userSchema.methods.toJSON = function() {
   return user;
 };
 
-// Change to named exports
 export default mongoose.model('User', userSchema);
