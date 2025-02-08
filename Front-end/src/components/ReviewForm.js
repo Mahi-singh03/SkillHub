@@ -9,7 +9,7 @@ const ReviewSystem = () => {
 
   // Fetch reviews from the backend
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://skillhub-a286.onrender.com/reviews")
       .then((response) => response.json())
       .then((data) => setReviews(data))
       .catch((error) => console.error("Error fetching reviews:", error));
