@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
+
+
+
 const userSchema = new mongoose.Schema({
   fullName: {
     type: String,
@@ -64,4 +67,5 @@ userSchema.methods.toJSON = function() {
   return user;
 };
 
+// Change to named exports
 export default mongoose.model('User', userSchema);

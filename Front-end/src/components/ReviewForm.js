@@ -1,25 +1,45 @@
-import React, { useState } from 'react';
-import "../css/ReviewForm.css"
+import React, { useState, useEffect } from "react";
+import "../css/ReviewForm.css";
 
 const ReviewSystem = () => {
   const [reviews, setReviews] = useState([]);
-  const [name, setName] = useState('');
-  const [comment, setComment] = useState('');
+  const [name, setName] = useState("");
+  const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
 
-  const handleSubmit = (e) => {
+  // Fetch reviews from the backend
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((response) => response.json())
+      .then((data) => setReviews(data))
+      .catch((error) => console.error("Error fetching reviews:", error));
+  }, []);
+
+  // Submit new review
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (name && comment && rating > 0) {
-      const newReview = {
-        name,
-        comment,
-        rating,
-        date: new Date().toLocaleString()
-      };
-      setReviews([newReview, ...reviews]);
-      setName('');
-      setComment('');
-      setRating(0);
+      const newReview = { name, comment, rating };
+
+      try {
+        const response = await fetch("https://skillhub-a286.onrender.com/reviews", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newReview),
+        });
+
+        if (response.ok) {
+          const savedReview = await response.json();
+          setReviews([savedReview, ...reviews]);
+          setName("");
+          setComment("");
+          setRating(0);
+        } else {
+          console.error("Error submitting review:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error submitting review:", error);
+      }
     }
   };
 
@@ -43,7 +63,7 @@ const ReviewSystem = () => {
             {[1, 2, 3, 4, 5].map((star) => (
               <span
                 key={star}
-                className={star <= rating ? 'star active' : 'star'}
+                className={star <= rating ? "star active" : "star"}
                 onClick={() => setRating(star)}
               >
                 ★
@@ -73,12 +93,12 @@ const ReviewSystem = () => {
               <span className="review-name">{review.name}</span>
               <span className="review-rating">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className={i < review.rating ? 'star active' : 'star'}>★</span>
+                  <span key={i} className={i < review.rating ? "star active" : "star"}>★</span>
                 ))}
               </span>
             </div>
             <p className="review-comment">{review.comment}</p>
-            <div className="review-date">{review.date}</div>
+            <div className="review-date">{new Date(review.date).toLocaleString()}</div>
           </div>
         ))}
       </div>
