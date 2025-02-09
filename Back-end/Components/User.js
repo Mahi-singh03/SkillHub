@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
   selectedCourse: {
     type: String,
     required: [true, 'Course selection is required'],
-    enum: ['HTML, CSS, JS', 'React', 'ERN FullStack', 'Autocad', 'CorelDRAW', 'Tally', 'Premier Pro', 'Wordpress', 'Computer Course', 'MS Office', 'PTE']
+    enum: ['HTML, CSS, JS', 'React', 'MERN FullStack', 'Autocad', 'CorelDRAW', 'Tally', 'Premier Pro', 'Wordpress', 'Computer Course', 'MS Office', 'PTE']
   },
   address: {
     type: String,

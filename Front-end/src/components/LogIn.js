@@ -3,7 +3,7 @@ import '../css/Login.css';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
@@ -20,56 +20,58 @@ const Login = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    setError(null); // Reset error state before submission
-    setLoading(true); // Set loading state to true
+    setError(null);
+    setLoading(true);
 
-    // Basic client-side validation for phone number
-    if (!/^\d{10}$/.test(phoneNumber)) {
-      setError('Please enter a valid 10-digit phone number.');
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError('Please enter a valid email address.');
       setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch('https://skillhub-a286.onrender.com/Login', {
+      const response = await fetch('https://skillhub-a286.onrender.com/loginS', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ phoneNumber, password }),
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        console.log('Success:', data);
-        localStorage.setItem('user', JSON.stringify(data)); // Store user data in local storage
+        // Store both user data and token
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('token', data.token);
         window.dispatchEvent(new Event('storage')); // Notify other components
-        navigate('/', { replace: true }); // Redirect to home
+        navigate('/', { replace: true });
       } else {
-        setError(data.error || 'Failed to log in. Please check your credentials.');
+        setError(data.message || 'Failed to log in. Please check your credentials.');
       }
     } catch (error) {
       console.error('Error:', error);
       setError('An error occurred. Please try again.');
     } finally {
-      setLoading(false); // Set loading state to false
+      setLoading(false);
     }
   };
 
   return (
     <div className="login-form-container">
-      <form className="L"onSubmit={handleLogin}>
-        <h1 className='Head'> Student login</h1>
+      <form className="L" onSubmit={handleLogin}>
+        <h1 className='Head'>Login</h1>
         <div className="inset">
           <p>
-            <label htmlFor="phoneNumber">PHONE NUMBER</label>
+            <label htmlFor="email">EMAIL</label>
             <input
-              type="tel"
-              name="phoneNumber"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              id="phoneNumber"
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              id="email"
               required
             />
           </p>
@@ -96,13 +98,12 @@ const Login = () => {
           </p>
         </div>
         {error && <div className="error-message">{error}</div>}
-        {loading ? (
-          <div className="loading-message">Loading...</div>
-        ) : (
-          <div className="forgot-password">
-            <span onClick={() => alert('Redirect to forgot password page')}>Forgot password?</span>
-          </div>
-        )}
+        {loading && <div className="loading-message">Loading...</div>}
+        <div className="forgot-password">
+          <span onClick={() => alert('Redirect to forgot password page')}>
+            Forgot password?
+          </span>
+        </div>
         <p className="p-container">
           <button type="submit" id="go" disabled={loading}>
             Log In

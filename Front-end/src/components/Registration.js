@@ -99,7 +99,7 @@ const Registration = () => {
     }
   };
 
-  const courses = ['HTML, CSS, JS', 'React', 'ERN FullStack', 'Autocad', 'CorelDRAW', 'Tally', 'Premier Pro', 'Wordpress', 'Computer Course', 'MS Office', 'PTE'];
+  const courses = ['HTML, CSS, JS', 'React', 'MERN FullStack', 'Autocad', 'CorelDRAW', 'Tally', 'Premier Pro', 'Wordpress', 'Computer Course', 'MS Office', 'PTE'];
   const qualifications = ['10th', '12th', 'Graduated'];
 
   return (
