@@ -10,7 +10,7 @@
     top: 60px; /* Adjust this value based on your navbar height */
     z-index: 999;
     gap: 20px;
-   margin-top: 12px;
+    margin-top: 12px;
   }
   
   .contact-button {
@@ -25,12 +25,12 @@
   
   .call-button {
     background-color: #007bff;
-    width: 40%;
+    width: 45%;
   }
   
   .whatsapp-button {
     background-color: #25d366;
-    width: 40%;
+    width: 45%;
   }
   
   .contact-button:hover {
