@@ -39,7 +39,7 @@ app.use('/reviews', reviewRoutes);
 })();
 
 // Add these routes before the review routes
-app.post("https://skillhub-a286.onrender.com/loginS", async (req, res) => {
+app.post("/loginS", async (req, res) => {
   try {
     const { email, password } = req.body;
 
