@@ -2,6 +2,11 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../css/CourseCard.css";
 import courses from "./data/home_courses";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 function CourseDetails() {
   const { courseID } = useParams();
@@ -18,7 +23,6 @@ function CourseDetails() {
 
   return (
     <div className="Course-Details">
-      
       <div className="course-card">
         <div className="course-header">
           <div className="course-title">
@@ -52,44 +56,23 @@ function CourseDetails() {
             ))}
           </ul>
         </div>
+
         <h2 className="yellow">Syllabus</h2>
-
-
         <div className="accordion-section yellow">
-          <div className="accordion yellow accordion-flush" id="accordionCourse">
-            {course.courseSyllabus.map((module, index) => {
-              const moduleID = `module-${index}`;
-              return (
-                <div className="accordion-item" key={index}>
-                  <h2 className="accordion-header yellow">
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target={`#${moduleID}`}
-                      aria-expanded="false"
-                      aria-controls={moduleID}
-                    >
-                      {module.module}
-                    </button>
-                  </h2>
-                  <div
-                    id={moduleID}
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionCourse"
-                  >
-                    <div className="accordion-body">
-                      <ul>
-                        {module.topics.map((topic, idx) => (
-                          <li key={idx}>{topic}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          {course.courseSyllabus.map((module, index) => (
+            <Accordion key={index} defaultExpanded={index === 0}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography component="span">{module.module}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <ul>
+                  {module.topics.map((topic, idx) => (
+                    <li key={idx}>{topic}</li>
+                  ))}
+                </ul>
+              </AccordionDetails>
+            </Accordion>
+          ))}
         </div>
       </div>
     </div>
