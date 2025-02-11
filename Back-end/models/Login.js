@@ -1,72 +1,22 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
-import validator from 'validator';
+import bcrypt from 'bcrypt';
 
-// Check if model exists before defining
-if (!mongoose.models.User) {
-  const userSchema = new mongoose.Schema({
-    email: {
-      type: String,
-      required: [true, 'Email is required'],
-      unique: true,
-      lowercase: true,
-      trim: true,
-      validate: {
-        validator: validator.isEmail,
-        message: 'Please enter a valid email'
-      }
-    },
-    password: {
-      type: String,
-      required: [true, 'Password is required'],
-      minlength: [8, 'Password must be at least 8 characters'],
-      select: false // Don't include password in queries by default
-    },
-    name: {
-      type: String,
-      required: [true, 'Name is required'],
-      trim: true
-    },
-    role: {
-      type: String,
-      enum: ['user', 'admin'],
-      default: 'user'
-    }
-  }, {
-    timestamps: true // Adds createdAt and updatedAt fields
-  });
+const LoginSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true, select: false }, // `select: false` ensures password is not returned by default
+});
 
-  // Hash password before saving
-  userSchema.pre('save', async function(next) {
-    if (!this.isModified('password')) return next();
-    
-    try {
-      const salt = await bcrypt.genSalt(12);
-      this.password = await bcrypt.hash(this.password, salt);
-      next();
-    } catch (error) {
-      next(error);
-    }
-  });
+// Hash password before saving
+LoginSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) return next();
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
+});
 
-  // Add method to compare passwords
-  userSchema.methods.comparePassword = async function(candidatePassword) {
-    try {
-      return await bcrypt.compare(candidatePassword, this.password);
-    } catch (error) {
-      throw new Error(error);
-    }
-  };
+// Compare password function
+LoginSchema.methods.comparePassword = async function (candidatePassword) {
+  return bcrypt.compare(candidatePassword, this.password);
+};
 
-  // Don't return password in JSON responses
-  userSchema.set('toJSON', {
-    transform: (doc, ret) => {
-      delete ret.password;
-      return ret;
-    }
-  });
-
-  mongoose.model('User', userSchema);
-}
-
-export default mongoose.model('User');
+const Login = mongoose.model('Login', LoginSchema);
+export default Login;

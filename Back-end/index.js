@@ -43,26 +43,30 @@ app.post("/loginS", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Check if email and password are provided
     if (!email || !password) {
       return res.status(400).json({ message: 'Email and password are required' });
     }
 
-    // Find user and explicitly select password field
+    // Find user and explicitly select the password
     const user = await Login.findOne({ email }).select('+password');
-    
-    // Check if user exists
+
     if (!user) {
+      console.log("❌ User not found for email:", email);
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    // Verify password
+    console.log("✅ User found:", user);
+
+    // Compare passwords
     const isPasswordValid = await user.comparePassword(password);
+    console.log("🔑 Password valid?", isPasswordValid);
+
     if (!isPasswordValid) {
+      console.log("❌ Password mismatch");
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    // Generate JWT token
+    // Generate token
     const token = jwt.sign(
       { userId: user._id },
       process.env.JWT_SECRET,
@@ -70,7 +74,7 @@ app.post("/loginS", async (req, res) => {
     );
 
     // Remove password from response
-    const userWithoutPassword = user.toJSON();
+    const { password: _, ...userWithoutPassword } = user.toObject();
 
     res.status(200).json({
       user: userWithoutPassword,
@@ -78,10 +82,11 @@ app.post("/loginS", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Login error:', error);
+    console.error('❌ Login error:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 
 // Review Routes
 app.post("/reviews", async (req, res) => {

@@ -23,7 +23,6 @@ export const register = async (req, res) => {
     // Send response
     return res.status(201).json({
       user: newUser.toJSON(),
-      message: 'Registration successful'
     });
 
   } catch (error) {

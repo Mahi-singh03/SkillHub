@@ -7,10 +7,13 @@ const Registration = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     fatherName: '',
+    motherName: '',
     emailAddress: '',
     phoneNumber: '',
     dateOfBirth: '',
+    aadharNumber: '',
     selectedCourse: '',
+    courseDuration: '',
     address: '',
     qualification: '',
     password: '',
@@ -33,6 +36,7 @@ const Registration = () => {
     switch (name) {
       case 'fullName':
       case 'fatherName':
+      case 'motherName':
       case 'address':
         error = value.trim() ? '' : `${name.replace(/([A-Z])/g, ' $1')} is required.`;
         break;
@@ -42,11 +46,15 @@ const Registration = () => {
       case 'phoneNumber':
         error = value.trim() ? '' : 'Phone number is required.';
         break;
+      case 'aadharNumber':
+        error = /^[0-9]{12}$/.test(value) ? '' : 'Enter a valid 12-digit Aadhar number.';
+        break;
       case 'dateOfBirth':
         error = value ? '' : 'Date of Birth is required.';
         break;
       case 'selectedCourse':
       case 'qualification':
+      case 'courseDuration':
         error = value ? '' : `Please select a ${name.replace(/([A-Z])/g, ' $1')}.`;
         break;
       case 'password':
@@ -101,18 +109,23 @@ const Registration = () => {
 
   const courses = ['HTML, CSS, JS', 'React', 'MERN FullStack', 'Autocad', 'CorelDRAW', 'Tally', 'Premier Pro', 'Wordpress', 'Computer Course', 'MS Office', 'PTE'];
   const qualifications = ['10th', '12th', 'Graduated'];
+  const durations = ['3 months', '6 months', '1 year'];
 
   return (
     <div className="registration-container">
       <form onSubmit={handleRegistration} className="registration-form responsive">
         <h3 className="heading">Students Registration</h3>
-
-        {Object.entries(formData).map(([key, value]) => (
-          key !== 'password' && key !== 'selectedCourse' && key !== 'qualification' && (
+        {Object.entries(formData)
+          .filter(([key]) => key !== 'password' && 
+                           key !== 'selectedCourse' && 
+                           key !== 'qualification' && 
+                           key !== 'courseDuration')
+          .map(([key, value]) => (
             <div key={key} className="form-group">
               <label htmlFor={key}>{key.replace(/([A-Z])/g, ' $1')}</label>
               <input
-                type={key === 'emailAddress' ? 'email' : key === 'dateOfBirth' ? 'date' : 'text'}
+                type={key === 'emailAddress' ? 'email' : 
+                      key === 'dateOfBirth' ? 'date' : 'text'}
                 name={key}
                 value={value}
                 onChange={handleInputChange}
@@ -122,8 +135,7 @@ const Registration = () => {
               />
               {errors[key] && <div className="error-message">{errors[key]}</div>}
             </div>
-          )
-        ))}
+          ))}
 
         {/* Course Selection */}
         <div className="form-group">
@@ -142,41 +154,45 @@ const Registration = () => {
           <label htmlFor="qualification">Qualification</label>
           <select name="qualification" value={formData.qualification} onChange={handleInputChange} onBlur={handleBlur} required>
             <option value="">Select Qualification</option>
-            {qualifications.map((qualification) => (
-              <option key={qualification} value={qualification}>{qualification}</option>
+            {qualifications.map((qual) => (
+              <option key={qual} value={qual}>{qual}</option>
             ))}
           </select>
           {errors.qualification && <div className="error-message">{errors.qualification}</div>}
         </div>
 
-        {/* Password Field */}
-        <div className="form-group password-group">
+        {/* Course Duration */}
+        <div className="form-group">
+          <label htmlFor="courseDuration">Course Duration</label>
+          <select name="courseDuration" value={formData.courseDuration} onChange={handleInputChange} onBlur={handleBlur} required>
+            <option value="">Select Duration</option>
+            {durations.map((duration) => (
+              <option key={duration} value={duration}>{duration}</option>
+            ))}
+          </select>
+          {errors.courseDuration && <div className="error-message">{errors.courseDuration}</div>}
+        </div>
+
+        {/* Password Field - Last */}
+        <div className="form-group">
           <label htmlFor="password">Password</label>
-          <div className="password-wrapper">
-            <input
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              onBlur={handleBlur}
-              id="password"
-              required
-            />
-            <button type="button" onClick={() => setShowPassword((prev) => !prev)} className="toggle-password1">
-              {showPassword ? '👁' : '🔒'}
-            </button>
-          </div>
+          <input
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+            id="password"
+            required
+          />
+          <button type="button" onClick={() => setShowPassword((prev) => !prev)} className="toggle-password1">
+            {showPassword ? '👁' : '🔒'}
+          </button>
           {errors.password && <div className="error-message">{errors.password}</div>}
         </div>
 
-        {errors.general && <div className="error-message">{errors.general}</div>}
-
         <div className="form-actions">
           <button type="submit" disabled={loading}>{loading ? 'Registering...' : 'Register'}</button>
-        </div>
-
-        <div className="login-redirect">
-          <span>Already have an account? <Link to="/Login">Log In</Link></span>
         </div>
       </form>
     </div>

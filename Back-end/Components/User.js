@@ -12,6 +12,11 @@ const userSchema = new mongoose.Schema({
     required: [true, "Father's name is required"],
     trim: true
   },
+  motherName: {
+    type: String,
+    required: [true, "Mother's name is required"],
+    trim: true
+  },
   rollNo: {
     type: String,
     unique: true
@@ -33,10 +38,21 @@ const userSchema = new mongoose.Schema({
     type: Date,
     required: [true, 'Date of Birth is required']
   },
+  aadharNumber: {
+    type: String,
+    required: [true, 'Aadhar Number is required'],
+    unique: true,
+    match: [/^[0-9]{12}$/, 'Enter a valid 12-digit Aadhar number']
+  },
   selectedCourse: {
     type: String,
     required: [true, 'Course selection is required'],
     enum: ['HTML, CSS, JS', 'React', 'MERN FullStack', 'Autocad', 'CorelDRAW', 'Tally', 'Premier Pro', 'Wordpress', 'Computer Course', 'MS Office', 'PTE']
+  },
+  courseDuration: {
+    type: String,
+    required: [true, 'Course duration is required'],
+    enum: ['3 months', '6 months', '1 year']
   },
   address: {
     type: String,
@@ -73,8 +89,9 @@ userSchema.pre('save', async function(next) {
 
   let newRollNo;
   if (lastUser && lastUser.rollNo.startsWith(currentYear.toString())) {
-    // Bug: Converting rollNo directly to integer could lose leading zeros
-    newRollNo = parseInt(lastUser.rollNo) + 1;
+    // Ensure leading zeros are preserved
+    const lastRollNumber = parseInt(lastUser.rollNo.slice(4), 10);
+    newRollNo = `${currentYear}${String(lastRollNumber + 1).padStart(3, '0')}`;
   } else {
     newRollNo = `${currentYear}001`; // Start fresh if no roll numbers exist
   }
