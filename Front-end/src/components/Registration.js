@@ -137,17 +137,7 @@ const Registration = () => {
             </div>
           ))}
 
-        {/* Course Selection */}
-        <div className="form-group">
-          <label htmlFor="selectedCourse">Selected Course</label>
-          <select name="selectedCourse" value={formData.selectedCourse} onChange={handleInputChange} onBlur={handleBlur} required>
-            <option value="">Select Course</option>
-            {courses.map((course) => (
-              <option key={course} value={course}>{course}</option>
-            ))}
-          </select>
-          {errors.selectedCourse && <div className="error-message">{errors.selectedCourse}</div>}
-        </div>
+      
 
         {/* Qualification Selection */}
         <div className="form-group">
@@ -159,6 +149,18 @@ const Registration = () => {
             ))}
           </select>
           {errors.qualification && <div className="error-message">{errors.qualification}</div>}
+        </div>
+
+          {/* Course Selection */}
+          <div className="form-group">
+          <label htmlFor="selectedCourse">Selected Course</label>
+          <select name="selectedCourse" value={formData.selectedCourse} onChange={handleInputChange} onBlur={handleBlur} required>
+            <option value="">Select Course</option>
+            {courses.map((course) => (
+              <option key={course} value={course}>{course}</option>
+            ))}
+          </select>
+          {errors.selectedCourse && <div className="error-message">{errors.selectedCourse}</div>}
         </div>
 
         {/* Course Duration */}

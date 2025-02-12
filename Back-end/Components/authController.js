@@ -19,6 +19,7 @@ export const register = async (req, res) => {
 
     // Save user to DB
     await newUser.save();
+    console.log(newUser)
 
     // Send response
     return res.status(201).json({
